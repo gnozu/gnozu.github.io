@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about/
+menu: true
 ---
 
 [http://gnozu.github.io/]() - this cv, and more!

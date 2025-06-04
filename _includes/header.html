@@ -46,7 +46,9 @@
         >
           <ul>
           {% for page in site.pages %}
+          {% if page.menu %}
           <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+          {% endif %}
           {% endfor %}
           </ul>
         </div>
@@ -54,7 +56,9 @@
 
       <div id="menu" class="trigger" x-transition x-show="window.innerWidth > 768 ? true : false">
         {% for page in site.pages %}
+        {% if page.menu %}
         <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+        {% endif %}
         {% endfor %}
       </div>
 

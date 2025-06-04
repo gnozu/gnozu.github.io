@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Matthew Bull. CV"
+menu: true
 ---
 
 ## PROFILE
