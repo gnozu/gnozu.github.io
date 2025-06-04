@@ -52,13 +52,15 @@
               @keydown.enter="open = false"
             >×</span>
 
-            <ul>
-              {% for page in site.pages %}
-              {% if page.menu %}
-              <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-              {% endif %}
-              {% endfor %}
-            </ul>
+            <div class="panel">
+              <ul>
+                {% for page in site.pages %}
+                {% if page.menu %}
+                <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+                {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
 
           </div>
         </div>

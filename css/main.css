@@ -160,6 +160,7 @@ a:visited { color: #c96900; }
   min-height: 100vh;
   padding: 96px 0 64px;
   overflow-y: scroll;
+  background-color: white;
 }
 
 
