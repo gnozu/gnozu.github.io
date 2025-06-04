@@ -4,30 +4,38 @@ title: "Matthew Bull. CV"
 menu: true
 ---
 
-## PROFILE
-Experienced UX/UI designer and frontend developer. I have spent the last 10 years researching user and business needs to build fast, usable, accessible and attractive interfaces for large-scale websites, apps, and corporate systems.
+## SUMMARY
+20 years experience as UX/UI designer and frontend developer.
+- UX, user research and testing.
+- Figma/Sketch. UI design.
+- CSS/HTML 
+- Javascript
+- Laravel, Laravel Nova, PHP
+- Accessibility
+- Frontend performance
 
-I work with marketing and development teams to build great user experiences that enhance an organisation's customer relations and marketability.
-Experience.
 
-
-## EXPERIENCE
+## WORK EXPERIENCE
 
 ### UX and Web Developer, University of Kent, Canterbury. 2014-Present
+- Lead on UX, user research, data and business needs analysis and UI design for a corporate website rebrand and restructure. This led to the large-scale simplification of the website, a modified brand, and a design of a new student-focussed area of the website.
 
-- Lead on UX, user research, data and business needs analysis and UI design for a corporate website rebrand and restructure.
-This led to the large-scale simplification of the website, a modified brand, and a design of a new student-focussed area of the website.
 - User research and UI design for a corporate data system. I built a pattern library which was used by developers on the project to build new sections of the system.
+
 - Work directly with marketing to design (Figma and Sketch) and build new web patterns and designs to help build a better overall student recruitment experience.
+
 - Implemented a new corporate brand on the university's web estate. Used Figma and Sketch to design new web components. Building new components with javascript, Sass, HTML, PHP, Vuejs, Alpinejs and Nextjs.
+
 - Develop using Laravel and Laravel Nova, for maintaining the system backends which drive our suite of APIs.
+
 - Analysis of Google PageSpeed Insights and Core Web Vitals. Implemented the performance improvements using Vuejs, Alpinejs, webpack, code-splitting and lazy-loading.
+
 - Improved the user experience by getting full W3C AA compliance on the university website. It was the first university website to achieve ASPIRE Education Gold 100% compliance.
 
 ### Web Developer, University of Kent, Canterbury. 2007-2014
-Part of a team that built and designed a university courses system. This system still drives the university's course information pages - a key university product page.
-Responsible for building frontend and backend systems with PHP, MySQL, jQuery, CSS, HTML.
-Wordpress coding, including implementing the university-wide blogs.kent.ac.uk site.
+- Part of a team that built and designed a university course system. This system still drives the university's course information pages - a key university product page.
+- Responsible for building frontend and backend systems with PHP, MySQL, jQuery, CSS, HTML.
+- Wordpress coding, including implementing the university-wide blogs.kent.ac.uk site.
 
 ### 2004 - 2006. Smart EPOS Ltd. PHP/MySQL web developer.
 

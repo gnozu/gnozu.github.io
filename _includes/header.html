@@ -21,42 +21,52 @@
             <path d="M3.63636 28.6667H40L36.3636 35.3333H0L3.63636 28.6667Z"></path>
           </svg>
         </button>
-        <button
-          class="close"
-          aria-label="close menu"
-          aria-controls="menu"
-          x-show="open"
-          x-transition
-          @click="open = !open"
-        >
-          <svg width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink">
-            <title>cross</title>
-            <g transform="translate(2.500750, 2.500000)" stroke-width="3.75">
-              <line x1="11.99925" y1="0.49925" x2="0.99925" y2="11.49925"></line>
-              <line x1="0.99925" y1="0.49925" x2="11.99925" y2="11.49925"></line>
-            </g>
-          </svg>
-        </button>
+
+
 
         <div
-          class="mobile-menu-wrapper"
-          x-transition
+          id="menu"
+          class="slidein"
+          :class="!open ? 'out' : ''"
+          role="dialog"
+          aria-label="menu"
+          aria-modal="true"
           x-show="open"
+          x-transition:enter.opacity.duration.300ms
+          x-transition:leave.opacity.duration.150ms
+          x-trap.inert.noscroll="open"
+          @click="open = false"
+          @keyup.window.escape="open = false"
         >
           <div
-            id="menu"
-            class="mobile-menu"
+            class="slidein__content"
+            @click.outside="open = false"
+            @click.stop
           >
+            <span
+              class="slidein__close"
+              aria-label="Close menu"
+              role="button"
+              tabindex="0"
+              @click="open = false"
+              @keydown.enter="open = false"
+            >×</span>
+
             <ul>
-            {% for page in site.pages %}
-            {% if page.menu %}
-            <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-            {% endif %}
-            {% endfor %}
+              {% for page in site.pages %}
+              {% if page.menu %}
+              <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+              {% endif %}
+              {% endfor %}
             </ul>
+
           </div>
         </div>
+
+
+
+
+
 
       </div>
 

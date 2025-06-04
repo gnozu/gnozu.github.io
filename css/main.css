@@ -136,6 +136,85 @@ a:visited { color: #c96900; }
   text-align: left;
 }
 
+.slidein {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.slidein__content {
+  cursor: auto;
+  width: 90vw;
+  position: relative;
+  animation: animaterightin 0.4s forwards;
+}
+
+.slidein__content > .panel {
+  height: 100vh;
+  min-height: 100vh;
+  padding: 96px 0 64px;
+  overflow-y: scroll;
+}
+
+
+.slidein.out .slidein__content {
+  animation: animaterightout 0.4s forwards;
+}
+
+.slidein__close {
+  cursor: pointer;
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  height: 2rem;
+  width: 2rem;
+  color: white;
+  font-size: 2rem;
+  background: black;
+  padding: 10px 10px 4px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.slidein__close:focus,
+.slidein__close:focus-visible {
+  outline: 3px solid #ffbb00;
+}
+
+
+@keyframes animaterightin {
+  from {
+    transform: translateX(50vw);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(10vw);
+    opacity: 1;
+  }
+}
+
+@keyframes animaterightout {
+  from {
+    transform: translateX(10vw);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(50vw);
+    opacity: 0;
+  }
+}
+
 /* Site footer */
 
 .site-footer {
