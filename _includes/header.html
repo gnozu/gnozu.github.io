@@ -6,7 +6,7 @@
 
     <nav class="site-nav" x-data="{open:false}">
 
-      <div class="mobile-nav-wrapper" x-show="window.innerWidth <= 768 && open">
+      <div x-show="window.innerWidth <= 768">
         <button
           class="hamburger"
           aria-label="open menu"
@@ -40,18 +40,24 @@
         </button>
 
         <div
-          id="menu"
-          class="mobile-menu"
-          x-transition x-show="window.innerWidth <= 768 ? open : false"
+          class="mobile-menu-wrapper"
+          x-transition
+          x-show="open"
         >
-          <ul>
-          {% for page in site.pages %}
-          {% if page.menu %}
-          <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-          {% endif %}
-          {% endfor %}
-          </ul>
+          <div
+            id="menu"
+            class="mobile-menu"
+          >
+            <ul>
+            {% for page in site.pages %}
+            {% if page.menu %}
+            <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+            </ul>
+          </div>
         </div>
+
       </div>
 
       <div id="menu" class="trigger" x-transition x-show="window.innerWidth > 768 ? true : false">
