@@ -126,7 +126,6 @@ a:visited { color: #c96900; }
   cursor: auto;
   width: 90vw;
   position: relative;
-  animation: animaterightin 0.4s forwards;
 }
 
 .slidein__content > .panel {
@@ -137,8 +136,15 @@ a:visited { color: #c96900; }
 }
 
 
+.slidein.in .slidein__content {
+  animation: animaterightin 0.4s forwards;
+  transform: translateX(10vw);
+}
+
+
 .slidein.out .slidein__content {
   animation: animaterightout 0.4s forwards;
+  transform: translateX(50vw);
 }
 
 .slidein__close {
@@ -187,6 +193,15 @@ a:visited { color: #c96900; }
     transform: translateX(300px);
     opacity: 0;
   }
+}
+
+.card-panel {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card {
+  width: calc(25% - 20px);
 }
 
 /* Site footer */
