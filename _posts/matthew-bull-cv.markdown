@@ -1,7 +1,11 @@
 ---
-layout: page
-title: "Matthew Bull. CV"
+layout: post
+title:  "Matthew Bull"
+date:   2025-06-02 11:32:00
+categories: jekyll update
 ---
+
+# CV - Matthew Bull
 
 ## PROFILE
 Experienced UX/UI designer and frontend developer. I have spent the last 10 years researching user and business needs to build fast, usable, accessible and attractive interfaces for large-scale websites, apps, and corporate systems.
@@ -72,3 +76,5 @@ Wordpress coding, including implementing the university-wide blogs.kent.ac.uk si
 - BA (Hons) Linguistics & AI - 1st class. Sussex University. 1990-1993.
 - PhD Linguistics. Edinburgh University. 1993-1997.
 - MSc Computing. Kent University. 2002-2003.
+
+
