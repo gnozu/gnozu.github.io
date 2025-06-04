@@ -149,9 +149,8 @@ a:visited { color: #c96900; }
   left: 15px;
   height: 30px;
   width: 30px;
-  color: white;
+  color: black;
   font-size: 2rem;
-  background: black;
   padding: 5px;
   border-radius: 50%;
   display: flex;
