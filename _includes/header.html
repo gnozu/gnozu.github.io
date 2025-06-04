@@ -4,17 +4,61 @@
 
     <h1><a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
 
-    <nav class="site-nav">
-      <a href="#" class="menu-icon">
-        <i class="fa fa-bars"></i>
-      </a>
-      <div class="trigger">
-        {% for page in site.pages %}
+    <nav class="site-nav" x-data="{open:false}">
+
+      <div x-show="window.innerWidth <= 768">
+        <button
+          class="hamburger"
+          aria-label="open menu"
+          aria-controls="menu"
+          x-show="!open"
+          x-transition
+          @click="open = !open"
+        >
+          <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.63636 4.66666H40L36.3636 11.3333H0L3.63636 4.66666Z"></path>
+            <path d="M3.63636 16.6667H40L36.3636 23.3333H0L3.63636 16.6667Z"></path>
+            <path d="M3.63636 28.6667H40L36.3636 35.3333H0L3.63636 28.6667Z"></path>
+          </svg>
+        </button>
+        <button
+          class="close"
+          aria-label="close menu"
+          aria-controls="menu"
+          x-show="open"
+          x-transition
+          @click="open = !open"
+        >
+          <svg width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>cross</title>
+            <g transform="translate(2.500750, 2.500000)" stroke-width="3.75">
+              <line x1="11.99925" y1="0.49925" x2="0.99925" y2="11.49925"></line>
+              <line x1="0.99925" y1="0.49925" x2="11.99925" y2="11.49925"></line>
+            </g>
+          </svg>
+        </button>
+
+        <div
+          id="menu"
+          class="trigger"
+          x-transition x-show="window.innerWidth <= 768 ? open : false"
+        >
+          {% for page in site.pages %}
           <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div id="menu" class="trigger" x-transition x-show="window.innerWidth > 768 ? true : false">
+        {% for page in site.pages %}
+        <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
         {% endfor %}
       </div>
+
     </nav>
 
   </div>
 
 </header>
+

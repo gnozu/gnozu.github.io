@@ -18,9 +18,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 300; }
 
-a         { color: #2a7ae2; text-decoration: underline; }
+a         { color: #c96900; text-decoration: underline; }
 a:hover   { color: #000; text-decoration: underline; }
-a:visited { color: #205caa; }
+a:visited { color: #c96900; }
 
 /* Utility */
 
@@ -200,7 +200,6 @@ a:visited { color: #205caa; }
 
 .post-header h1, .post-header h2 {
   font-size: 24px;
-  line-height: 1;
 }
 
 .post-header .meta {
@@ -249,7 +248,6 @@ a:visited { color: #205caa; }
 .post-content h4,
 .post-content h5,
 .post-content h6 {
-  line-height: 1;
   margin: 40px 0 0 0;
 }
 
@@ -457,7 +455,6 @@ a:visited { color: #205caa; }
   .post-content h4,
   .post-content h5,
   .post-content h6 {
-    line-height: 1;
     margin: 20px 0 10px 0;
   }
   .post-content h1 {
