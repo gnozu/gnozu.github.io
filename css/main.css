@@ -96,41 +96,15 @@ a:visited { color: #c96900; }
   stroke-width: 2px;
 }
 
-.mobile-menu-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background-color: #0000009c;
-}
 
-.mobile-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
 
-.mobile-menu {
-  position: absolute;
-  width: 90%;
-  height: 100%;
-  right: 0;
-  top: 0;
-  background-color: #ffbb00;
-  z-index: 1;
-}
-
-.mobile-menu ul {
+.slidein__content ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.mobile-menu a.page-link {
+.slidein__content a.page-link {
   padding: 10px;
   color: black;
   text-align: left;
