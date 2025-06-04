@@ -44,9 +44,11 @@
           class="mobile-menu"
           x-transition x-show="window.innerWidth <= 768 ? open : false"
         >
+          <ul>
           {% for page in site.pages %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+          <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
           {% endfor %}
+          </ul>
         </div>
       </div>
 
