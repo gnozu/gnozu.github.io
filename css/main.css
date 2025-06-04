@@ -76,6 +76,35 @@ a:visited { color: #c96900; }
   letter-spacing: -.5px;
 }
 
+.hamburger, .close {
+  background: transparent;
+  border: none;
+  padding: 10px;
+  position: absolute;
+  right: 0px;
+  width: 30px;
+  height: 30px;
+  z-index: 2;
+}
+
+.hamburger svg, .close svg {
+  width: 30px;
+  height: 30px;
+}
+
+.mobile-menu {
+  position: absolute;
+  width: 90%;
+  right: 0;
+  top: 0;
+  background-color: ffbb00;
+  z-index: 1;
+}
+
+.mobile-menu .page-link {
+  text-align: left;
+}
+
 /* Site footer */
 
 .site-footer {
