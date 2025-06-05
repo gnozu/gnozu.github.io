@@ -86,6 +86,7 @@ a:visited { color: #c96900; }
   width: 50px;
   height: 50px;
   z-index: 2;
+  cursor: pointer;
 }
 
 .hamburger svg, .close svg {
@@ -189,6 +190,26 @@ a:visited { color: #c96900; }
 }
 .card {
   width: calc(25% - 20px);
+  background-color: white;
+  border: 1px solid #cfd1d3;
+  border-radius: 5px;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, .16), 0 0 0 1px rgba(0, 0, 0, .06);
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+a.card {
+  color: black;
+  text-decoration: none;
+}
+
+.card img {
+  object-fit: cover;
+  width: 100%;
 }
 
 /* Site footer */
