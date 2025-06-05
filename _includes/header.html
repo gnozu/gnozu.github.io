@@ -34,6 +34,7 @@
           aria-label="menu"
           aria-modal="true"
           x-show="open"
+          x-transition.opacity
           x-trap.inert.noscroll="open"
           @click="open = false"
           @keyup.window.escape="open = false"
@@ -42,13 +43,6 @@
             class="slidein__content"
             @click.outside="open = false"
             @click.stop
-            x-show="open"
-            x-transition:enter="transition-out"
-            x-transition:enter-start="opacity0 transformx50"
-            x-transition:enter-end="opacity100 transformx10"
-            x-transition:leave="transition-in"
-            x-transition:leave-start="opacity100 transformx10"
-            x-transition:leave-end="opacity0 transformx50"
           >
             <span
               class="slidein__close"
