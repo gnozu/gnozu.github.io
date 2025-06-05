@@ -34,8 +34,7 @@
           aria-label="menu"
           aria-modal="true"
           x-show="open"
-          x-transition:enter.opacity.duration.300ms
-          x-transition:leave.opacity.duration.150ms
+          x-transition:leave.opacity.duration.300ms
           x-trap.inert.noscroll="open"
           @click="open = false"
           @keyup.window.escape="open = false"
