@@ -109,88 +109,94 @@ a:visited { color: #c96900; }
   color: black;
   text-align: left;
 }
-
 .slidein {
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 9999;
+  z-index: 999;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
-}
-
-.slidein__content {
-  cursor: auto;
-  width: 90vw;
-  position: relative;
-}
-
-.slidein__content > .panel {
-  height: calc(100vh - 50px);
-  padding: 50px 0 0 0;
-  overflow-y: scroll;
-  background-color: white;
-}
-
-
-.slidein.in .slidein__content {
-  animation: animaterightin 0.3s forwards;
-}
-
-
-.slidein.out .slidein__content {
-  animation: animaterightout 0.3s forwards;
-}
-
-.slidein__close {
-  cursor: pointer;
-  position: absolute;
-  top: 15px;
-  right: 5px;
-  height: 30px;
-  width: 30px;
-  color: black;
-  font-size: 2rem;
-  padding: 5px;
-  border-radius: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-}
+  justify-content: flex-end;
 
-.slidein__close:focus,
-.slidein__close:focus-visible {
-  outline: none;
-}
-
-
-
-@keyframes animaterightin {
-  from {
-    opacity: 0;
-    transform: translateX(50vw);
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
   }
 
-  to {
-    opacity: 1;
-    transform: translateX(10vw);
-  }
-}
+  .slidein__content {
+    cursor: auto;
+    width: 90%;
+    position: relative;
+    z-index: 2;
 
-@keyframes animaterightout {
-  from {
-    opacity: 1;
-    transform: translateX(10vw);
+    &>.panel {
+      height: 100vh;
+      min-height: 100vh;
+      padding: 96px 0 64px;
+      overflow-y: scroll;
+
+      @include media-breakpoint-up(ipad) {
+        padding: 96px 64px 64px;
+      }
+    }
+
+    &.transition-in {
+      transition: all 0.3s ease-in;
+    }
+
+    &.transition-out {
+      transition: all 0.3s ease-out;
+    }
+
+    &.transformx50 {
+      transform: translateX(50%);
+    }
+
+    &.transformx0 {
+      transform: translateX(0);
+    }
+
+    &.opacity0 {
+      opacity: 0;
+    }
+
+    &.opacity100 {
+      opacity: 1;
+    }
   }
 
-  to {
-    opacity: 0;
-    transform: translateX(50vw);
+  .slidein__close {
+    cursor: pointer;
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    height: 2rem;
+    width: 2rem;
+    color: white;
+    font-size: 2rem;
+    background: $dark-navy;
+    padding: 10px 10px 4px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    &:focus,
+    &:focus-visible {
+      outline: 3px solid $blue;
+    }
   }
+
 }
 
 .card-panel {
