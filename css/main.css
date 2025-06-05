@@ -171,25 +171,25 @@ a:visited { color: #c96900; }
 
 @keyframes animaterightin {
   from {
-    transform: translateX(50vw);
     opacity: 0;
+    transform: translateX(50vw);
   }
 
   to {
-    transform: translateX(10vw);
     opacity: 1;
+    transform: translateX(10vw);
   }
 }
 
 @keyframes animaterightout {
   from {
-    transform: translateX(10vw);
     opacity: 1;
+    transform: translateX(10vw);
   }
 
   to {
-    transform: translateX(50vw);
     opacity: 0;
+    transform: translateX(50vw);
   }
 }
 
