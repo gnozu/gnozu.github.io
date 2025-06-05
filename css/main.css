@@ -176,13 +176,13 @@ a:visited { color: #c96900; }
 .slidein__close {
   cursor: pointer;
   position: absolute;
-  top: 32px;
-  left: 32px;
-  height: 2rem;
-  width: 2rem;
+  top: 15px;
+  right: 5px;
+  height: 30px;
+  width: 30px;
   color: black;
   font-size: 2rem;
-  padding: 10px 10px 4px;
+  padding: 5px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
