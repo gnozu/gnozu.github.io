@@ -490,6 +490,7 @@ a.card {
 
 
 @media screen and (max-width: 750px) {
+  
 
   .footer-col-1 { width: 50%; }
 
@@ -514,7 +515,9 @@ a.card {
 
   .wrap { padding: 0 12px; }
 
-
+  .card {
+    width: 100%;
+  }
 
   .post-header h1 { font-size: 24px; }
   .post-content h2 { font-size: 24px; }
