@@ -138,15 +138,12 @@ a:visited { color: #c96900; }
     position: relative;
     z-index: 2;
 
-    &>.panel {
+    & > .panel {
       height: 100vh;
       min-height: 100vh;
       padding: 96px 0 64px;
       overflow-y: scroll;
-
-      @include media-breakpoint-up(ipad) {
-        padding: 96px 64px 64px;
-      }
+      background-color: white;
     }
 
     &.transition-in {
@@ -174,29 +171,28 @@ a:visited { color: #c96900; }
     }
   }
 
-  .slidein__close {
-    cursor: pointer;
-    position: absolute;
-    top: 32px;
-    left: 32px;
-    height: 2rem;
-    width: 2rem;
-    color: white;
-    font-size: 2rem;
-    background: $dark-navy;
-    padding: 10px 10px 4px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
+}
 
-    &:focus,
-    &:focus-visible {
-      outline: 3px solid $blue;
-    }
-  }
+.slidein__close {
+  cursor: pointer;
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  height: 2rem;
+  width: 2rem;
+  color: black;
+  font-size: 2rem;
+  padding: 10px 10px 4px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
 
+.slidein__close:focus,
+.slidein__close:focus-visible {
+  outline: none;
 }
 
 .card-panel {
