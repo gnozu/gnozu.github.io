@@ -124,7 +124,7 @@ a:visited { color: #c96900; }
 
 .slidein__content {
   cursor: auto;
-  width: 90%;
+  width: 100%;
   position: relative;
   z-index: 2;
   overflow: hidden;
