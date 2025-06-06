@@ -188,28 +188,33 @@ a:visited { color: #c96900; }
   gap: 20px;
   flex-wrap: wrap;
 }
-.card {
-  width: calc(25% - 20px);
+.card-panel .card {
+  width: calc(50% - 55px);
   background-color: white;
   border: 1px solid #cfd1d3;
   border-radius: 5px;
   box-shadow: 0 2px 16px 0 rgba(0, 0, 0, .16), 0 0 0 1px rgba(0, 0, 0, .06);
-  padding: 10px;
+  padding: 20px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 14px;
 }
 
-a.card {
+.card-panel a.card {
   color: black;
   text-decoration: none;
 }
 
-.card img {
+.card-panel .card h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.card-panel .card img {
   object-fit: cover;
   width: 100%;
+  aspect-ratio: 1 / 1;
 }
 
 /* Site footer */
@@ -375,7 +380,7 @@ a.card {
 
 .post-content { margin: 0 0 30px; }
 
-.post-content > * { margin: 20px 0; }
+.post-content > * { margin: 10px 0; }
 
 
 .post-content h1,
@@ -390,10 +395,11 @@ a.card {
 .post-content h1 {
   margin: 20px 0 0 0;
   font-weight: bold;
+  font-size: 40px;
 }
 
 .post-content h2 {
-  font-size: 20px;
+  font-size: 26px;
   font-weight: bold;
 }
 
