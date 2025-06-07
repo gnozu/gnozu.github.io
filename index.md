@@ -1,10 +1,9 @@
 ---
 layout: page
 title: "Home"
-menu: true
 ---
 
-## SUMMARY
+## Summary
 20 years experience as UX/UI designer and frontend developer.
 - UX, user research and testing.
 - Figma/Sketch. UI design.
@@ -15,7 +14,7 @@ menu: true
 - Frontend performance
 
 
-## WORK EXPERIENCE
+## Work experience
 
 ### UX and Web Developer, University of Kent, Canterbury. 2014-Present
 - Lead on UX, user research, data and business needs analysis and UI design for a corporate website rebrand and restructure. This led to the large-scale simplification of the website, a modified brand, and a design of a new student-focussed area of the website.
@@ -37,14 +36,14 @@ menu: true
 - Responsible for building frontend and backend systems with PHP, MySQL, jQuery, CSS, HTML.
 - Wordpress coding, including implementing the university-wide blogs.kent.ac.uk site.
 
-### 2004 - 2006. Smart EPOS Ltd. PHP/MySQL web developer.
+### Smart EPOS eCommerce web design agency. PHP/MySQL web developer. 2004 - 2006. 
 
 ### Other
-- 2001 - 2002. LexiQuest, Paris. Language technologist and Java coder.
-- 1998 - 2000. Lernout & Hauspie Speech Products, Belgium. Language technologist and perl/shell programmer.
+- LexiQuest, Paris. Language technologist and Java coder. 2001 - 2002. 
+- Lernout & Hauspie Speech Products, Belgium. Language technologist and perl/shell programmer. 1998 - 2000. 
 
 
-## SKILLS
+## Skills
 ### User research
 9 years experience. Card sorting, focus groups, interviews, data analysis.
 - Part-time UX Developer role in my team since early 2014.
@@ -72,11 +71,11 @@ menu: true
 ### PHP
 19 years experience. Laravel, Laravel Nova. PHPUnit.
 
-### GENERAL DEVELOPMENT
+### General
 19 years experience. Gitlab CI. Webpack.
 
 
-## EDUCATION
+## Education
 
 - BA (Hons) Linguistics & AI - 1st class. Sussex University. 1990-1993.
 - PhD Linguistics. Edinburgh University. 1993-1997.
