@@ -1,7 +1,9 @@
 # Site settings
-title: Matthew Bull
+title: Matthew Designs
+subtitle: UX. Figma. JavaScript. PHP.
 email: bull.matthew@gmail.com
 description: "Matthew Bull is a web developer with over 20 years experience of UX, design and PHP development."
+keywords: "UX, Figma, JavaScript, PHP, Web, Design, Laravel, Wordpress"
 baseurl: ""
 url: "https://gnozu.github.io"
 
