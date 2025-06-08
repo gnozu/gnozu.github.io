@@ -10,6 +10,7 @@
     <nav class="site-nav" x-data="{open:false}">
 
       <template x-if="window.innerWidth <= 768">
+        <div>
         <button
           class="hamburger"
           aria-label="open menu"
@@ -30,7 +31,6 @@
 
 
         <div
-          x-cloak
           id="menu"
           class="slidein"
           role="dialog"
@@ -68,7 +68,7 @@
 
           </div>
         </div>
-
+        </div>
 
 
 

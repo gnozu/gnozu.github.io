@@ -1,0 +1,74 @@
+---
+layout: post
+title: CSS testing and pattern libraries
+subtitle: Visual regression testing with PhantomCSS
+date: 2015-10-16T16:49:40+01:00
+categories: Patterns
+---
+
+
+       
+        <p>The project I’m working on right
+                now uses a bought-in piece of software with a complex set of patterns and styles. HTML elements
+            can be used in different ways in different contexts, and the resulting css can be complicated and fiddly.
+        </p>
+        <p>To add to the complexity, much of the system has already been built (and is live) while the majority has yet
+            to be built and is&nbsp;actively evolving.</p>
+        <p>If ever there were&nbsp;a use-case for automated testing, this would be it.</p>
+        <p>And yet as we all know testing web styling has in the past usually involved making changes, checking a few
+            key pages, and then hoping everything will be ok. This works ok in smaller projects, but can be time
+            consuming and error prone in larger projects.</p>
+        <h2>PhantomCSS</h2>
+        <p>I therefore looked at a handy visual regression tool called <a
+                href="https://github.com/Huddle/PhantomCSS">PhantomCSS</a>. It’s actually a <a
+                href="https://github.com/n1k0/casperjs">CasperJS</a> module which uses <a
+                href="https://github.com/ariya/phantomjs/">PhantomJS</a> and <a
+                href="http://huddle.github.io/Resemble.js/">Resemble.js</a>&nbsp;to compare baseline screenshots of a
+            webpage with the current screenshots.</p>
+        <p>Of course, comparing one complete web page with another complete web page isn’t much use, especially if those
+            pages are dynamic.</p>
+        <p>Far better is to compare your website’s building blocks in a pattern library.</p>
+        <p>Luckily I already have a living pattern library for this project, which you can find out more about on my <a
+                href="https://blogs.kent.ac.uk/webdev/2015/09/24/building-and-hosting-a-pattern-library-on-github/">blog
+                post about a github-hosted pattern library</a>. You might also want to bear Brad Frost’s <a
+                href="http://bradfrost.com/blog/post/atomic-web-design/">atomic design principles</a> in mind too.</p>
+        <p>With a pattern library you can tell PhantomCSS to pick out the HTML examples (for example using an
+            <code>id</code> on each example). It will then build screenshots of things like example panels, tables,
+            forms and compare them to your baseline. Any differences will be picked up before you roll to live.</p>
+        <h2>Setup</h2>
+        <p>The great thing about PhantomCSS is that it’s pretty easy to set up. I’m not per se a full-on web developer
+            (although I have some experience in that area) but I managed to get things set up pretty quickly.</p>
+        <p>If you’re at all familiar with <a href="https://nodejs.org/en/">node</a> and <a
+                href="http://browsenpm.org">npm</a>&nbsp;then you can set up the required phantomcss, phantomjs,
+            casperjs, and&nbsp;resemblejs dependencies in your <code>package.json</code> file.</p>
+        <p>You will also need the <code>phantomcss.js</code> config file. I had to manually copy this into my project,
+            as I couldn’t figure out how else to include it. There might be a better way of doing this, but for now it
+            works.</p>
+        <h2>Get testing</h2>
+        <p>Finally you’ll need to write your test suite file, using standard casperjs syntax.</p>
+        <p>For example you’ll end up writing tests like:</p>
+        <pre><code>
+casper.thenClick('a[href="patterns.html"]');
+casper.then( function () {
+  phantomcss.screenshot( '#example-table', 'tables' );
+  phantomcss.screenshot( '#example-form', 'forms' );
+});
+</code>
+</pre>
+        <p>where casperjs follows a link, loads a page, looks for certain elements, and takes a screenshot.</p>
+        <h2>Any good?</h2>
+        <p>I’ve so far used PhantomCSS&nbsp;in a fairly experimental way. I certainly found it&nbsp;to be much much
+            nicer than having to check things manually!</p>
+        <p>Setup and configuration was pretty simple even though I’m very far from being a hardcore dev.</p>
+        <p>I would say that for this to work you really need a pattern library using the principles of atomic design.
+            That will give you a great base for testing out all the possible design examples.</p>
+        <p>In my current&nbsp;project things were a bit more complex design-wise. It’s a pain but it’s just how things
+            often are. So it made testing far harder, but still possible in many cases.</p>
+        <p>For that reason I’d only advise automated css testing as a kind of fire blanket. It gives you peace of mind,
+            but you will always need to do some manual testing as well.</p>
+        <h2>Summary</h2>
+        <p>PhantomCSS is a great tool for quickly and easily setting up some visual regression testing, preferably on
+            your site’s pattern library (you <em>do</em> have a pattern library, don’t you?)</p>
+        <p>It won’t cure all your most complex css testing issues, but it will give you an element of peace of mind that
+            if you edit some css it won’t have some catastrophically weird effect somewhere else.</p>
+    
