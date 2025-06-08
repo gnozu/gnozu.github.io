@@ -1,0 +1,136 @@
+---
+layout: post
+title: Accessibility testing
+subtitle: [6 minute read]
+date: 2022-09-21 15:14:12
+categories: Accessibility
+---
+
+        <p>Making anything good to use has to take into account the needs and abilities of lots of people with different
+            needs and abilities. Accessibility testing helps us design better websites, and understand the needs of a
+            lot of different types of people.</p>
+        <p>The Web Accessibility Initiative has a range of <a
+                href="https://www.w3.org/WAI/standards-guidelines/">guidelines and tools</a> to make things clearer for
+            web designers. These guidelines are all very well but designers can end up in a box-ticking exercise,
+            following best practice without ever really understanding the kinds of problems the guidelines were designed
+            to solve.</p>
+        <p>I’ve found that it’s nearly impossible to build accessible websites without testing them out in some way. I
+            never assume I'm going to get everything right first time, and maybe not even the second time. It’s a
+            process of honing my skills and adapting to changing needs and technology.</p>
+        <h2 id="testing-my-websites">Testing my websites</h2>
+        <p>my colleagues in <a href="https://www.kent.ac.uk/studentsupport/accessibility/opera.html">Project OPERA</a>
+            have done a huge amount of work to thoroughly test a range of University of Kent webpages: prospectus pages,
+            academic school websites, staff profile pages, and main navigation areas of the template.</p>
+        <p>They invited three people – two impaired vision users and one screen reader user – to follow a set of general
+            instructions for which areas of the website to navigate to and around. They weren’t told how to navigate the
+            sites, simply what kind of information to look for and browse.</p>
+        <p>These tests have given us really useful, detailed information about where I had significant weak points. My
+            thanks to the Project OPERA team for making such detailed records of these users’ interactions and feedback!
+        </p>
+        <h2 id="self-testing-with-screen-readers">Self-testing with screen readers</h2>
+        <p>In fact I’ve now started to test my sites with screen readers. This is particularly useful where
+            I need to get some initial idea of whether a fix might work in the real world rather than just a
+            theoretical improvement.</p>
+        <p>Using screen readers and assistive technology isn’t at all easy, so testing has limitations. It’s
+            technically quite a steep learning curve, and I’m never going to fully replicate the kinds of experiences
+            a blind or visually impaired user will have.</p>
+        <p>For example, I’ve found that screen reader users typically approach navigating websites in quite different
+            ways from sighted users. It’s not just that screen reader users conceptualise the structure of the page
+            differently, but the whole approach to interacting with websites differs. It can often be more detailed,
+            more systematic, and much slower.</p>
+        <p>Impaired-vision users also have needs which can be all too easy to forget about. For example they may often
+            rely on large amounts of page magnification which can make related elements on the page less obvious. The
+            space that we designers tend to add to pages to help create a degree of cognitive simplicity for many users
+            can actually cause problems for some.</p>
+        <h2 id="feedback-from-testing">Feedback from testing</h2>
+        <p>I found the feedback could be broken down into a few key problem areas. I’ve already managed to fix some of
+            these problems, while others are in progress. Some are harder to fix because they’re caused by code that
+            I'm using from other libraries. But at least I'm now aware of the scope of these problems.</p>
+        <h3>Readability</h3>
+        <p>I found it wasn’t always clear that main links on feature panels were actually links, and not just text. We
+            thought I’d given enough of a visual cue with a chevron next to the text, but to some users this wasn’t
+            particularly obvious. I have considered whether it would be worth adding some kind of underline to these
+            links instead. I’d like a bit more feedback on this before making what is a fairly major design change.</p>
+        <figure id="attachment_3413" aria-describedby="caption-attachment-3413" style="width: 1024px"
+            class="wp-caption aligncenter"><a
+                href="https://blogs.kent.ac.uk/webdev/files/2018/12/Screenshot-2018-12-07-11.35.27.png"><img
+                    class="wp-image-3413 size-large"
+                    src="https://blogs.kent.ac.uk/webdev/files/2018/12/Screenshot-2018-12-07-11.35.27-1024x264.png"
+                    alt="screenshot of a feature panel" width="1024" height="264"
+                    srcset="https://blogs.kent.ac.uk/webdev/files/2018/12/Screenshot-2018-12-07-11.35.27-1024x264.png 1024w, https://blogs.kent.ac.uk/webdev/files/2018/12/Screenshot-2018-12-07-11.35.27-300x77.png 300w, https://blogs.kent.ac.uk/webdev/files/2018/12/Screenshot-2018-12-07-11.35.27-768x198.png 768w, https://blogs.kent.ac.uk/webdev/files/2018/12/Screenshot-2018-12-07-11.35.27-1920x494.png 1920w"
+                    sizes="(max-width: 1024px) 100vw, 1024px"></a>
+            <figcaption id="caption-attachment-3413" class="wp-caption-text">Links on feature panels aren’t obviously
+                links to all users</figcaption>
+        </figure>
+        <p>&nbsp;</p>
+        <p>I found for some users that breadcrumb text didn’t have enough contrast, so I’ve increased this.</p>
+        <h3>Screen reader labels</h3>
+        <p>I discovered that a big problem for screen readers was that while users could navigate to areas of the page
+            easily enough, they couldn’t necessarily tell what the purpose of that area was.</p>
+        <p>A good example of this was a search filter box which to a screen reader appeared as ‘Course filter’. What it
+            controlled and what it was there for wasn’t at all clear.</p>
+        <p>These sorts of issues are easily fixed with <code>aria-label</code>, <code>aria-labelledby</code> and
+            <code>aria-controls</code>. I found that by simply being a bit more thorough with labelling items such as
+            navigation areas, menus and search boxes I added a lot of value for screen reader users.</p>
+        <h3>Search autocomplete</h3>
+        <p>A critical problem in the website for screen reader users was the course search box. This was so bad that one
+            user said they’d give up and call the university to find out more. Given that prospectus pages are a key
+            part of the website, I needed to fix this as a priority.</p>
+        <p>I found that the problem was actually with how the autocomplete on the search box wasn’t providing screen
+            reader users with appropriate feedback, or any means to know where the search results were being displayed.
+        </p>
+        <p>It’s worth noting that during the original development I’d taken pains to make this autocomplete accessible.
+            This is a great example of how following guidelines and code samples is good in theory, but if you don’t
+            test with real people you can easily end up making things worse.</p>
+        <h3>Carousels and virtual tours</h3>
+        <p>I had some issues with both the carousel panel and virtual tour panel.</p>
+        <ul>
+            <li>poor screen reader accessibility with the virtual tour</li>
+            <li>poor icon contrast on the visual virtual tour</li>
+            <li>using the carousel with screen readers is confusing</li>
+        </ul>
+        <p>Sadly both the carousels and virtual tour rely on 3rd party code. For now there doesn’t seem a lot I can do
+            to improve the situation. However I am now investigating replacing these libraries with better ones.</p>
+        <h3>Videos</h3>
+        <p>Videos presented a range of challenges.</p>
+        <p>One of the key problems was with the video feature panels. These have a large image and a ‘play video’
+            button. Only when the user clicks the button will the video load in a modal box.</p>
+        <p>For screen readers the image just seemed to be an image, and the play button was invisible. So the end result
+            was that screen reader users never realised they could load a video.</p>
+        <p>I fixed this by making sure the overlay which loads up the video is clearly marked as something that will
+            start a video. I did this with <code>aria-label</code> and <code>aria-controls</code>.</p>
+        <p>Another problem with videos was that while I’d provided a link to a transcript, this link wasn’t very
+            prominent. I moved the transcript link above the video and made it more visually prominent.</p>
+        <figure id="attachment_3414" aria-describedby="caption-attachment-3414" style="width: 1024px"
+            class="wp-caption aligncenter"><a
+                href="https://blogs.kent.ac.uk/webdev/files/2018/12/Screenshot-2018-12-07-11.45.29.png"><img
+                    loading="lazy" class="wp-image-3414 size-large"
+                    src="https://blogs.kent.ac.uk/webdev/files/2018/12/Screenshot-2018-12-07-11.45.29-1024x462.png"
+                    alt="screenshot of a video panel" width="1024" height="462"
+                    srcset="https://blogs.kent.ac.uk/webdev/files/2018/12/Screenshot-2018-12-07-11.45.29-1024x462.png 1024w, https://blogs.kent.ac.uk/webdev/files/2018/12/Screenshot-2018-12-07-11.45.29-300x135.png 300w, https://blogs.kent.ac.uk/webdev/files/2018/12/Screenshot-2018-12-07-11.45.29-768x346.png 768w, https://blogs.kent.ac.uk/webdev/files/2018/12/Screenshot-2018-12-07-11.45.29-1920x865.png 1920w"
+                    sizes="(max-width: 1024px) 100vw, 1024px"></a>
+            <figcaption id="caption-attachment-3414" class="wp-caption-text">The link to a video transcript is now more
+                prominent</figcaption>
+        </figure>
+        <p>I also found that YouTube videos in a popup can’t be closed with the ESC key once they’ve been played. This
+            is true for sighted users, but sighted users can easily click away from the popup, or can click the close
+            button. I haven’t yet fixed this bug, but I'm working on a solution.</p>
+        <p>Finally, I encountered a problem where the video popup allowed screen readers to interact with content
+            “behind” the modal even when the video was still open. I fixed this using the <code>aria-modal</code>
+            attribute, which tells screen readers to keep focus on the popup/modal. If you’d like to know more about
+            getting popups and modals to work with screen readers check out the excellent blog post <a
+                href="https://developer.paciellogroup.com/blog/2018/06/the-current-state-of-modal-dialog-accessibility/"><em>The
+                    current state of modal dialog accessibility</em></a>.</p>
+        <h3>Don’t use tabs</h3>
+        <p>One interesting thing I found in the feedback is that for all users, having information on one scrollable
+            page is preferable to having separate tabs which load in the information separately.</p>
+        <p>For example, users preferred the way I’d organised the staff pages (information all on one page with anchor
+            links to relevant areas) as opposed to the prospectus pages where users have to click a tab to load up a new
+            section of information.</p>
+        <p>The reason seems to be simple: the more information there is about a topic on a single page, the easier it is
+            to search and move through, and the easier it is to make sense of links in the content.</p>
+        <h2>Summary</h2>
+        <p>I got a lot of really useful accessibility feedback about the site, even from only 3 users. I found a range
+            of bugs and issues, including accessibility problems with labelling, search, and videos. This work has
+            encouraged us to try using screen readerss more in future, and rely less on official guidelines and
+            more on the reality of using websites with screen readers or zooming into the page.</p>

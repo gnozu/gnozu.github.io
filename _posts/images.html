@@ -1,0 +1,69 @@
+<article class="post-3718 post type-post status-publish format-standard has-post-thumbnail hentry category-release-notes category-site-editor category-siteeditor tag-siteeditor tag-user-experience-2 tag-user-needs tag-ux-design">
+    <header>
+      <h1 class="entry-title">Site Editor image updates</h1>
+              <h2>Cropping, image resizing, and making the website faster.</h2>
+            <p class="byline author vcard"><img alt="" src="https://secure.gravatar.com/avatar/4eda2c677ab3ca24daa2368a4acf1a03?s=40&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/4eda2c677ab3ca24daa2368a4acf1a03?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40" loading="lazy">By <a href="https://blogs.kent.ac.uk/webdev/author/mb324/" rel="author" class="fn">Matthew Bull</a> | <time class="updated" datetime="2020-06-02T12:25:43+01:00">02&nbsp;June&nbsp;2020</time></p>
+    </header>
+          <div class="entry-featured">
+        <img src="https://blogs.kent.ac.uk/webdev/files/2020/05/arianka-ibarra-fz4j0RPp9qo-unsplash-1024x1024.jpg" class="featured-img" alt="sliced lemons on a pale pink background">
+              </div>
+        <div class="entry-content">
+      <h2>Introduction</h2>
+<p>We’ve just rolled out some changes to Site Editor which we hope will save editors a lot of time and effort adding images to pages.</p>
+<p>There are also some changes behind the scenes which make images load more efficiently on the page, making the website a little faster.</p>
+<h2>Uploading photos the new way</h2>
+<p>When you upload an image to Site Editor, you no longer need to worry about whether it’s exactly 3:2, or 1920px by 1280px, or whether it’s 200kB. Just choose an image and upload it. Site Editor makes sure the final image is the right size and shape.</p>
+<p>And importantly… don’t worry, this won’t affect any photos you’ve uploaded in the past!</p>
+<p>We would ask that you try to limit your original photos to no more than a few megabytes. We’ve found that a good size is somewhere around 2 to 3MB, but double or even triple that is fine. Most jpeg images you’ll have access to shouldn’t be much more than this.</p>
+<h2>Check the focal point of the photo</h2>
+<p>There is one thing to look out for though. If you choose an image that’s in portrait orientation where the focus isn’t vertically in the middle of the photo, you may need to do some cropping before you upload.</p>
+<p>Site Editor always crops to the middle of the image, so for example if you upload an image like this…</p>
+<p>&nbsp;</p>
+<p><img class="wp-image-3720 size-medium aligncenter" src="https://blogs.kent.ac.uk/webdev/files/2020/05/eberhard-grossgasteiger-jCL98LGaeoE-unsplash-200x300.jpg" alt="a pinkish sunset over mountains" width="200" height="300" srcset="https://blogs.kent.ac.uk/webdev/files/2020/05/eberhard-grossgasteiger-jCL98LGaeoE-unsplash-200x300.jpg 200w, https://blogs.kent.ac.uk/webdev/files/2020/05/eberhard-grossgasteiger-jCL98LGaeoE-unsplash-768x1152.jpg 768w, https://blogs.kent.ac.uk/webdev/files/2020/05/eberhard-grossgasteiger-jCL98LGaeoE-unsplash-683x1024.jpg 683w, https://blogs.kent.ac.uk/webdev/files/2020/05/eberhard-grossgasteiger-jCL98LGaeoE-unsplash-1920x2880.jpg 1920w" sizes="(max-width: 200px) 100vw, 200px"></p>
+<p>&nbsp;</p>
+<p>Site Editor will crop it vertically in the <strong>middle</strong> of the photo. So it will end up with a 3:2 landscape photo looking like this…</p>
+<p><a href="https://blogs.kent.ac.uk/webdev/files/2020/05/eberhard-grossgasteiger-jCL98LGaeoE-unsplash_2000w.jpg"><img loading="lazy" class="aligncenter wp-image-3721 size-medium" src="https://blogs.kent.ac.uk/webdev/files/2020/05/eberhard-grossgasteiger-jCL98LGaeoE-unsplash_2000w-300x200.jpg" alt="a pinkish sunset over mountains" width="300" height="200" srcset="https://blogs.kent.ac.uk/webdev/files/2020/05/eberhard-grossgasteiger-jCL98LGaeoE-unsplash_2000w-300x200.jpg 300w, https://blogs.kent.ac.uk/webdev/files/2020/05/eberhard-grossgasteiger-jCL98LGaeoE-unsplash_2000w-768x512.jpg 768w, https://blogs.kent.ac.uk/webdev/files/2020/05/eberhard-grossgasteiger-jCL98LGaeoE-unsplash_2000w-1024x683.jpg 1024w, https://blogs.kent.ac.uk/webdev/files/2020/05/eberhard-grossgasteiger-jCL98LGaeoE-unsplash_2000w.jpg 1920w" sizes="(max-width: 300px) 100vw, 300px"></a></p>
+<p>That’s unlikely to be the crop you’d have chosen if you did this by hand. So in these cases you will need to do some cropping in some image processing software before you upload your image.</p>
+<h2>Lazy loading</h2>
+<p>Another thing we’ve done behind the scenes is improve the efficiency of how images get loaded. Something which should help improve the user experience of our website.</p>
+<p>We now load our images in the browser bit by bit. You’ll see it in action if you go to a fairly long Kent web page with plenty of images and very quickly scroll down the page. You might briefly see images appear in a blurry way, and then appear normally. This is the browser loading a very low quality, low file size image first. Then when the user can see the image it loads up the full-size version.</p>
+<p>This is what’s called<strong> lazy loading</strong>. It doesn’t mean the full-size image only appears if it feels like it. It actually appears right on cue, as soon as it’s visible in your browser window. When a photo is further down the page, it’ll still be the low-quality blurry image. It’s just that you can’t see it.</p>
+<h2>Why lazy loading matters</h2>
+<p>Normally browsers aren’t very clever, and they load up <strong>all</strong> the images on a page at once. If you have a lot of high quality images further down a page this means the browser is trying to load up images that people can’t even see yet. They may never see them, possibly because they get fed up waiting for the images at the top of the page to load!</p>
+<p>Lazy loading means the browser only has to load up all the low quality images. This won’t take much time because the file sizes are so tiny. Then when someone actually scrolls down the page and gets to see a photo… pop! The higher quality image loads up.</p>
+<p>If you’re on a fast connection this might not be a huge problem. But most people will at some point/usually get a poor connection on their phone, or for various reasons they may never have access to a fast connection.</p>
+<h2>Lazy loading in different browsers</h2>
+<p>Of course, not all browsers work the same way. (This is what makes web development ‘fun’.) Google Chrome uses its own clever <a href="https://web.dev/native-lazy-loading/">built-in system</a> for lazy loading. For other browsers this kind of thing is still in development, or not on the horizon at all, so we need to use slightly different approaches. For older browsers we need yet more approaches. And for <strong>very</strong> old browsers (for example IE8 and older) none of this lazy loading will work at all. Our philosophy is that we aim to produce a usable website for all browsers, and the more modern a browser, the richer the experience becomes.</p>
+<h2>Using the right image</h2>
+<p>When you upload a photo to your page, another thing happens behind the scenes: we generate several different versions of the same photo. So there’s a large 1920px by 1280px image, but there’s also a smaller one at 800px wide. This is lower quality and a smaller file size, but it’s still good enough for us to use for phones and tablets.</p>
+<p>So how does a phone or tablet know to use the 800px photo and not the 1920px one?</p>
+<p>Well, we have to tell it! (Using some HTML code called <code>srcset</code> and <code>sizes</code> attributes.)</p>
+<p>When the page loads, the browser knows how wide it is, and it uses the list of images we’ve given it to choose the appropriate one. Again, this makes everything much more efficient for the end user, who now a) doesn’t have to wait for all the images on a page to load; b) when they do appear, they will get a smaller image if they’re on a phone.</p>
+<p>It’s all about giving users just enough for what they need to get the site to load up quickly.</p>
+<h2>Summary</h2>
+<p>We recently made three big changes to how images are uploaded to the website, and how users view them.</p>
+<p>The first change was to get Site Editor to do some of the work that editors used to have to do to get an image in the right orientation and file size.</p>
+<p>The second change is called lazy loading. It should make the website run a bit faster and more smoothly for users by delaying when an image is loaded until the moment someone can actually see it.</p>
+<p>The third change is to make sure the correct version of an image is loaded up on different screen sizes. There’s no point loading up a really large image on a phone, for example.</p>
+<p>If you’d like to know more about lazy loading, here’s some links I found useful:</p>
+<p><a href="https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video">https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video</a></p>
+<p><a href="https://web.dev/native-lazy-loading/">https://web.dev/native-lazy-loading/</a></p>
+<p>If you’d like to know more about the HTML <code>srcset</code> and <code>sizes</code> attributes, these posts are really handy:</p>
+<p><a href="https://medium.com/@woutervanderzee/responsive-images-with-srcset-and-sizes-fc434845e948">https://medium.com/@woutervanderzee/responsive-images-with-srcset-and-sizes-fc434845e948</a></p>
+<p><a href="https://ericportis.com/posts/2014/srcset-sizes/">https://ericportis.com/posts/2014/srcset-sizes/</a></p>
+    </div>
+    <footer>
+      <span class="cat-links"><span class="screen-reader-text">Categories:&nbsp;</span><a href="https://blogs.kent.ac.uk/webdev/category/release-notes/" rel="category tag">Release Notes</a> <a href="https://blogs.kent.ac.uk/webdev/category/site-editor/" rel="category tag">site-editor</a> <a href="https://blogs.kent.ac.uk/webdev/category/siteeditor/" rel="category tag">SiteEditor</a></span>
+    <span class="tag-links"><span class="screen-reader-text">Tags:&nbsp;</span><a href="https://blogs.kent.ac.uk/webdev/tag/siteeditor/" rel="tag">SiteEditor</a> <a href="https://blogs.kent.ac.uk/webdev/tag/user-experience-2/" rel="tag">user experience</a> <a href="https://blogs.kent.ac.uk/webdev/tag/user-needs/" rel="tag">user needs</a> <a href="https://blogs.kent.ac.uk/webdev/tag/ux-design/" rel="tag">ux design</a></span>
+    </footer>
+    
+<section id="comments" class="comments">
+  
+  
+  	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/webdev/2020/06/02/site-editor-image-updates/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://blogs.kent.ac.uk/webdev/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate=""><p class="logged-in-as"><a href="https://blogs.kent.ac.uk/webdev/wp-admin/profile.php" aria-label="Logged in as Matthew Bull. Edit your profile.">Logged in as Matthew Bull</a>. <a href="https://blogs.kent.ac.uk/webdev/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Fblogs.kent.ac.uk%2Fwebdev%2F2020%2F06%2F02%2Fsite-editor-image-updates%2F&amp;_wpnonce=c0cb87439e">Log out?</a> <span class="required-field-message" aria-hidden="true">Required fields are marked <span class="required" aria-hidden="true">*</span></span></p><p class="comment-form-comment"><label for="comment">Comment <span class="required" aria-hidden="true">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required=""></textarea></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="3718" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="874fca0f42"></p><input type="hidden" id="_wp_unfiltered_html_comment_disabled" name="_wp_unfiltered_html_comment" value="acfc0f15fb"><script>(function(){if(window===window.parent){document.getElementById('_wp_unfiltered_html_comment_disabled').name='_wp_unfiltered_html_comment';}})();</script>
+<p style="display: none !important;" class="akismet-fields-container" data-prefix="ak_"><label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="1749299464667"><script>document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p></form>	</div><!-- #respond -->
+	</section>
+  </article>

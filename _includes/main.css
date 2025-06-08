@@ -41,7 +41,7 @@ body {
   background-color: #fdfdfd;
 }
 
-h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 300; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: bold; }
 
 a         { color: #af6000; text-decoration: underline; }
 a:hover   { color: #000; text-decoration: underline; }
@@ -86,15 +86,6 @@ a.site-title:hover,
 a.site-title:visited {
   color: #333;
   text-decoration: none;
-}
-
-.title {
-  color: #af6000;
-  font-size: 24px;
-}
-
-.subtitle {
-  font-size: 14px;
 }
 
 .site-nav .page-link {
@@ -334,37 +325,13 @@ a.site-title:visited {
 
 .post pre.terminal code { background-color: #333; }
 
-.post-header { margin: 10px 0 30px; }
-
-.post-header h1 {
-  font-size: 24px;
-}
-
-.post-header h2 {
-  font-size: 18px;
-}
-
-.post-header .meta {
-  font-size: 15px;
-  color: #818181;
-  margin-top: 5px;
-}
-
-.post-header {display: none;}
-
-.post-header ul {
-  list-style: none;
-  margin: 0;
-}
-
-.post-header li,
-.post-header p {
-  font-size: 15px;
-  color: #828282;
-}
 
 .post-content li::marker {
   color: #af6000;
+}
+
+.post-content p {
+  padding-bottom: 10px;
 }
 
 
@@ -427,6 +394,21 @@ a.site-title:visited {
 .post-content ul,
 .post-content ol { padding-left: 16px; }
 
+.post-header.post-content h1.title {
+  margin: 0;
+}
+
+.post-header.post-content .meta {
+  margin: 0;
+  font-size: 16px;
+}
+
+.post-header.post-content .subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
 
 /* media queries */
 /* ----------------------------------------------------------*/
@@ -457,9 +439,7 @@ a.site-title:visited {
   .page-content {
     border-top: 5px solid #FFBB00;
   }
-  .post-header {display: block;}
-  .post-header h2 {float: left;}
-  .post-header ul {display: block; text-align: right;}
+
   .post-content { margin: 0 0 10px; }
   .post-content > * { margin: 10px 0; }
   .post-content h1,
@@ -479,6 +459,8 @@ a.site-title:visited {
     position: relative;
     bottom: 3px;
   }​
+
+
 
 }
 

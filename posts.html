@@ -1,0 +1,14 @@
+---
+layout: page
+title: Blog
+permalink: /blog/
+menu: true
+---
+
+<ul>
+{% for post in site.posts %}
+    <li>
+        <a class="page-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a><span> - {{ post.date | date: "%e %B %Y" }}</span>
+    </li>
+{% endfor %}
+</ul>

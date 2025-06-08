@@ -1,0 +1,138 @@
+---
+layout: post
+title: Designing for Accessibility
+subtitle: The need for accessible websites [Reading time 5 mins]
+date: 2024-05-22 11:11:13
+categories: Accessibility
+---
+
+
+    <p>Here are a few things to consider about accessibility:</p>
+    <ul>
+        <li>15% of the world’s population have some form of disability. This includes conditions that affect seeing,
+            hearing, motor abilities and cognitive abilities.</li>
+        <li>About 4% of the population have low vision, whereas 0.6% are blind.</li>
+        <li>7 to 12% of men have some form of color-vision deficiency (color blindness), and less than 1% of women
+            do.</li>
+        <li>Low-vision conditions increase with age. Half of people over the age of 50 have some degree of
+            low-vision condition.</li>
+        <li>Worldwide, the fastest-growing population is 60 years of age and older.</li>
+        <li>Almost everyone over 40 (yes, me included) will find they need glasses to see small objects or text.
+        </li>
+    </ul>
+    <p>(Figures taken from <a
+            href="https://www.smashingmagazine.com/ebooks/practical-approaches-for-designing-accessible-websites/">Practical
+            Approaches to Designing Accessible Websites</a>.)</p>
+    <p>Think also about the times you want to watch a video but you don’t have headphones. Subtitles would be great.
+        Or&nbsp;the times you wished a form on a website was less confusing to fill out? Or the times a website took
+        too long to load on your phone?</p>
+    <p>Are these accessibility issues, or just good design?</p>
+    <p>Everyone is constrained by the world around them, and their own capabilities. Good design makes things less
+        complicated and more usable for a specific audience. Accessibility is a part of that process.</p>
+    <h2>Web accessibility initiative</h2>
+    <p>Websites actually have a great advantage over physical things because we can shape them to the needs of
+        different groups of users. We can allow everyone some kind of access to our content, even if the experience
+        will be different for different users.</p>
+    <p>Designing accessible websites is a complex task, because of the sheer range of needs.</p>
+    <p>In 1997 the W3C (World Wide Web Consortium) created the <a href="http://www.w3.org/WAI/">Web Accessibility
+            Initiative</a> (WAI). They set up a series of guidelines called the <a
+            href="https://www.w3.org/WAI/intro/wcag">Web Content Accessibility Guidelines</a> (WCAG) to help
+        developers create accessible websites.</p>
+    <p>The WCAG has <a href="https://www.w3.org/WAI/WCAG20/quickref/">3 levels of conformity</a>: A, AA, or AAA.
+        Most web developers will try to aim for AA compliance at best. AAA compliance is <a
+            href="https://www.wuhcag.com/wcag-level-aaa/">generally nearly impossible</a> for large websites. It’s a
+        common ideal to aim for, at least.</p>
+    <h2>Screen reader technology</h2>
+    <p>Screen readers allow people with visual impairments to use a computer, and access websites.</p>
+    <p><a href="http://www.freedomscientific.com/Products/Blindness/JAWS">JAWS</a>, <a
+            href="https://www.nvaccess.org">NVDA</a> and <a
+            href="https://www.apple.com/uk/accessibility/mac/vision/">Apple VoiceOver</a> are <a
+            href="https://webaim.org/projects/screenreadersurvey7/#primary">the most popular screen readers</a>.
+        Like conventional web browsers each interprets standards in different ways.</p>
+    <figure id="attachment_3281" aria-describedby="caption-attachment-3281" style="width: 300px"
+        class="wp-caption alignleft"><a
+            href="https://blogs.kent.ac.uk/webdev/files/2018/05/Screen-Shot-2018-05-10-at-10.24.07.png"><img
+                class="size-medium wp-image-3281"
+                src="https://blogs.kent.ac.uk/webdev/files/2018/05/Screen-Shot-2018-05-10-at-10.24.07-300x185.png"
+                alt="Screenshot of part of the extensive NVDA user guide" width="300" height="185"
+                srcset="https://blogs.kent.ac.uk/webdev/files/2018/05/Screen-Shot-2018-05-10-at-10.24.07-300x185.png 300w, https://blogs.kent.ac.uk/webdev/files/2018/05/Screen-Shot-2018-05-10-at-10.24.07-768x473.png 768w, https://blogs.kent.ac.uk/webdev/files/2018/05/Screen-Shot-2018-05-10-at-10.24.07-1024x631.png 1024w, https://blogs.kent.ac.uk/webdev/files/2018/05/Screen-Shot-2018-05-10-at-10.24.07-1920x1184.png 1920w"
+                sizes="(max-width: 300px) 100vw, 300px"></a>
+        <figcaption id="caption-attachment-3281" class="wp-caption-text">Part of the extensive NVDA user guide.
+        </figcaption>
+    </figure>
+    <p>Technology – and how people use technology – often change faster than standards, so following standards
+        strictly won’t always give a great user experience. But at least a good understanding of the most popular
+        screen readers helps make our websites better.</p>
+    <p>A good example of standards compliance vs practical reality is the <code>longdesc</code> HTML attribute. It’s
+        been around for years as a way of describing a diagram in words. This sounds like a great thing for
+        accessibility.</p>
+    <p>The problem is that only screen readers support it. If you use a standard browser you’re never going to see
+        the description. This matters to lots of people (for example people with cognitive impairments) who use
+        conventional browsers and would benefit from a clear description.</p>
+    <p>So standards are just a useful tool to help us build good websites. Designers still have to put some thought
+        into the design.</p>
+    <h2>ARIA</h2>
+    <p>A more recent development is the <a href="https://www.w3.org/WAI/intro/aria">WAI-ARIA</a> (<em>Web
+            Accessibility Initiative – Accessible Rich Internet Applications</em>… whew…) set of standards. Let’s
+        call it ARIA for short.</p>
+    <p>ARIA helps developers describe what parts of a web page do, and how those parts relate to each other. It
+        means users don’t have to make the sorts of visual assumptions about web pages that used to be forced on
+        them (“the menu is obviously the thing running along the top of the page” or “that’s a button because it
+        looks like one”, and so on).</p>
+    <p>By and large screen readers are pretty good at recognising ARIA attributes in HTML. <a
+            href="https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/landmarks/index.html">You
+            can find ARIA examples</a> on the w3.org website.</p>
+    <h2>Colour, text and images</h2>
+    <p>Colour is a fundamental building block to a designer. For readability, simplicity is best. A subtle grey on a
+        white background is utterly useless for many people. Even high contrast white-on-black text can be quite
+        difficult to read (I find it makes my eyes go funny after a minute or two).</p>
+    <p>There are now many very good colour contrast tools to help designers. There really is no excuse for poor text
+        readability.</p>
+    <p>Likewise text size and line length matter. A good, readable line length is somewhere about 60–80 characters.
+        Text should be large enough for the majority of people to read comfortably. There are even some fairly
+        scientific ways of <a href="https://www.imarc.com/blog/best-font-size-for-any-device">calculating a good
+            font size</a>. Built-in magnification tools for Windows, macOS, iOS and Android can help people who need
+        further text magnification.</p>
+    <p>Images are used widely on the web. The <code>alt</code> attribute is a very simple way for developers to help
+        people who can’t see the image work out what it’s about, by tagging the image with a short description. <a
+            href="https://help.twitter.com/en/using-twitter/picture-descriptions">Twitter now allows a similar
+            thing</a>, and very much worth considering next time you tweet a picture.</p>
+    <h2>Mice (and fingers)</h2>
+    <p>Some people cannot use a mouse or trackpad, but can use a keyboard. Many websites are primarily aimed at
+        people using mice, trackpads and fingers to navigate and click around the screen.</p>
+    <p>Browsers do however allow people to use the <code>TAB</code> and arrow keys to jump from one interactive part
+        of a webpage to another, and move through lists and menus. For the most part this works well, but sometimes
+        developers still need to make sure they design their pages so they work well with keyboards.</p>
+    <h2>Language</h2>
+    <p>Accessibility is partly a technical design issue: ARIA attributes, well-structured HTML, good colour
+        contrast, larger text, tabbing through content… But one of the hardest things to get right is language.</p>
+    <p>Keep your language simple. It helps everyone.</p>
+    <p>It isn’t patronising to use simple language. There’s a place for more complex writing, and websites selling
+        things or providing services are not that place. You don’t know the context of where people are reading your
+        text. They might be in a hurry, or have other more important things to do.</p>
+    <figure id="attachment_3279" aria-describedby="caption-attachment-3279" style="width: 300px"
+        class="wp-caption aligncenter"><a
+            href="https://blogs.kent.ac.uk/webdev/files/2018/05/Screen-Shot-2018-05-10-at-09.53.21.png"><img
+                loading="lazy" class="size-medium wp-image-3279"
+                src="https://blogs.kent.ac.uk/webdev/files/2018/05/Screen-Shot-2018-05-10-at-09.53.21-300x197.png"
+                alt="Screenshot of the Hemingway writing tool" width="300" height="197"
+                srcset="https://blogs.kent.ac.uk/webdev/files/2018/05/Screen-Shot-2018-05-10-at-09.53.21-300x197.png 300w, https://blogs.kent.ac.uk/webdev/files/2018/05/Screen-Shot-2018-05-10-at-09.53.21-768x505.png 768w, https://blogs.kent.ac.uk/webdev/files/2018/05/Screen-Shot-2018-05-10-at-09.53.21-1024x674.png 1024w, https://blogs.kent.ac.uk/webdev/files/2018/05/Screen-Shot-2018-05-10-at-09.53.21-1920x1263.png 1920w"
+                sizes="(max-width: 300px) 100vw, 300px"></a>
+        <figcaption id="caption-attachment-3279" class="wp-caption-text">Hemingway is a great way to improve your
+            text’s readability. It also helps improve your own writing skills.</figcaption>
+    </figure>
+    <p>If you take pride in making your writing over-complicated, bear in mind that people will probably assume you
+        don’t know what you’re talking about.</p>
+    <h2>Summary</h2>
+    <p>We try to think about accessibility as a fundamental part of our user experience, rather than just as an
+        afterthought of ticked boxes.</p>
+    <p>Accessibility is hard to get right on web pages because of the many different user needs.</p>
+    <p>However web designers have a set of tools and standards to help guide them. Web Content Accessibility
+        Guidelines (WCAG), WAI-ARIA, Lighthouse, WAVE and Hemingway.</p>
+    <p>Standards are great, but technology has a habit of moving faster than them, or not sticking to them
+        particularly closely. Web designers and developers need to bear this in mind too.</p>
+    <h2>Recommended reading</h2>
+    <p>Smashing Magazine’s <a
+            href="https://www.smashingmagazine.com/ebooks/practical-approaches-for-designing-accessible-websites/">Practical
+            Approaches to Designing Accessible Websites</a></p>
+    <p>Donald A. Norman’s <a href="https://mitpress.mit.edu/books/living-complexity">Living with Complexity</a></p>

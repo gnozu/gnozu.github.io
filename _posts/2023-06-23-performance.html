@@ -1,0 +1,79 @@
+---
+layout: post
+title: Website performance and UX
+subtitle: Finding a way through the maze of developing a performant large-scale website.
+date: 2023-06-27 13:32:00
+categories: Performance
+---
+
+
+
+  <p class="lead">Building a performant website has become increasingly important in the last few years. The challenges even for small websites can be tricky to overcome. Performance requires very careful consideration and planning for large-scale websites spanning thousands of pages.</p>
+  <h2>Overview</h2>
+  <p>Good web user experience is about good design. It’s about making sure that we make a web user interface easy for people to make sense of, that we reduce clutter and noise, and that we make experiences that reflect whatever brand the business needs to communicate.</p>
+  <p>What people see isn’t the only part to the overall experience. We also need to think about page responsiveness and speed. Timely response has always been a thing in web UX design, but this was more often about providing cues that something was slow to load than it was about making that thing fast to load in the first place. Spinners, progress bars and warning messages rather than just making things faster in the first place.</p>
+  <p>Server and backend response times were a huge bottleneck for older, poorly cached websites where slow server-side code and huge database queries regularly hampered performance to the point where sites would become unusable. By comparison, slightly large image sizes or bulky css files paled into insignificance.</p>
+  <p>As web frameworks and web infrastructure have improved, the emphasis on frontend performance has increased. A huge factor was the advent a few years ago of Google’s <a href="https://pagespeed.web.dev/">PageSpeed Insights </a>and the <a href="https://developers.google.com/search/blog/2018/01/using-page-speed-in-mobile-search">increased importance placed by Google</a> and other search engines on frontend performance for search results. Mobile device user experience became hugely important. <a href="https://web.dev/vitals/">Web Vitals</a> is a core part of this, and is “…an initiative by Google to provide unified guidance for quality signals that are essential to delivering a great user experience on the web.”</p>
+  <p>At Kent we have a very large overall website: many thousands of pages spanning multiple possible page layouts and functionality. We have employed a range of techniques to help us have more performant pages, particularly on key pages of the site. Details are below.</p>
+  <h2>Images</h2>
+  <p><strong>TL;DR Images were a big problem for website speed, but that’s much less the case now.</strong></p>
+  <p>Probably the biggest single issue with frontend website performance over the years has been images. Huge 4MB type things that would take ages to load. Mercifully for some years now most content management systems have taken care of automatic image resampling and resizing. The problem still remained, however, that images were built into the core of HTML, and would get loaded as part of the initial page load. So images further down a page would still need to be loaded, often pointlessly. All modern browsers now recognise <code>loading="lazy"</code> so that problem has largely vanished.</p>
+  <p>Another issue was image resampling. JPEGs have long been the mainstay of websites. A newer standard – WebP – was introduced by Google over 10 years ago, and aimed to improve compression while keeping quality. Again, modern browsers have no problem with WebP so currently this is a no-brainer for performance. Relatively simple workarounds exist if you still need IE support.</p>
+  <h2>Fonts</h2>
+  <p><strong>TL;DR There is no brilliant solution to this, just a few alternatives that are ok. Do you want users to see a flash of nothing, and then the right thing? Or a flash of the wrong thing, and then a jank as the right thing loads? That, essentially, is your choice.</strong></p>
+  <p>Fonts are a key component of any website’s brand, but need to be loaded very quickly if we’re to avoid annoying jumps or changes to the user experience. Sadly, fonts can also be quite large. By the time you’ve included a standard, bold, italic, bolditalic for two or perhaps three brand fonts…</p>
+  <p>At Kent we’re fortunate to have only one type of font, but we need 400, 700 and 900 sizes. We’ve decided not to bother with any of the italics versions. Italics are used occasionally in text on the website, but it isn’t part of the core brand. The browser does a good enough job on those rare occasions it is used.</p>
+  <p>We load the fonts inline as part of our above the fold inline CSS. The fonts get loaded very early and we rely on FOUT to display a system font for a fraction of a second until the brand font is loaded. This gives us good results for layout shift (CLS) while making sure users get to see something very quickly. We tried preloading our fonts to get them to load even earlier, but really this didn’t give any better results.</p>
+  <h2>CSS</h2>
+  <p><strong>TL;DR Ugh. This is complicated…</strong></p>
+  <p>CSS perhaps poses the biggest problem for performance.</p>
+  <p>The whole point of this is to try to reduce the size of your CSS file(s) and to make more efficient CSS. This is not too bad if you have a simple site with a few pages, but much much harder if the site’s complex and large.</p>
+  <p>One issue to deal with is that Google Lighthouse performance audit will often tell you to… <a href="https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/">Reduce Unused CSS</a>. It’s an easy thing to list in a series of audit checkboxes, but as Chris Coyier <a href="https://css-tricks.com/how-do-you-remove-unused-css-from-a-site/">pointed out</a>, <strong>this is a hard problem</strong>.</p>
+  <p>Yes there are tools such as <a href="https://github.com/purifycss/purifycss">PurifyCSS</a> to help. Yes, CSS frameworks like Tailwind make sure your built CSS only contains the classes that are used in your HTML code.</p>
+  <p><em><strong>However</strong></em>… in a way these miss the point, which is that on large complex websites you may have a lot of freedom about what components web editors might use on a page, and a lot of potentially unused but potentially useful CSS, depending on context.</p>
+  <p>For example on the Kent website we have 7 key brand colours. We therefore need to make sure that a range of panels and components can switch easily between these 7 colours. For any given dynamically built page in the CMS, we never know which range of colours might be used. So we have to include all 7 in the CSS. If an editor only chooses blue, we have the other 6 sitting there in the CSS, redundant.</p>
+  <p>The Lighthouse audit also is bad at working out what css is used at different breakpoints. You’ll likely have a lot of redundancy of CSS because of this. Not because of poor design or implementation, but simply because different breakpoints need to look different.</p>
+  <p>We could build the CSS based on exactly what’s published on a page, but we’d have to rebuild the CSS for each page. Add to that the fact that we have a very large number of optional components, colours, shapes, etc over many thousands of pages, and the problem gets very, very hard very quickly.</p>
+  <p>We have tried to use a solution which loads css for specific, larger components on a page as the users scrolls near that part of the page. This way we minimise the CSS that might be redundant on a page, or isn’t used at first load.</p>
+  <h3>Above-the-fold CSS</h3>
+  <p><strong>TL;DR Inline CSS for very fast first experiences.</strong></p>
+  <p>The key to optimized css is to realise that anything the user might see as the page first loads needs to be loaded very early. Basically the only reliable way to achieve this with your CSS is to load it inline. This guarantees it gets processed very early in the page lifecycle.</p>
+  <p>You therefore need to split your css into at least two sets.</p>
+  <ol>
+  <li>CSS used for above-the-fold content. This CSS needs to be loaded very early on in the page load, and needs to be loaded very quickly. So it’s loaded inline in the <code>&lt;head&gt;</code>using a <code>&lt;style&gt;</code> tag.</li>
+  <li>All the other CSS. This is loaded in the usual way with a <code>&lt;link&gt;</code> tag.</li>
+  <li>Optional. Load CSS lazily with javascript, perhaps when a user scrolls to a certain point on the page, or interacts in some other way with the page. This is very useful for areas further down the page, such as a footer or panels that you know will never be further up.</li>
+  </ol>
+  <p>The problem with above-the-fold CSS is that we don’t want to rely on this too much. Inline CSS isn’t cached, so we want to keep this as minimal as we can. Unfortunately this isn’t easy for sites which can have pages with very different above-the-fold content.</p>
+  <p>For this reason at Kent, we’ve tried to split our inline CSS into a range of different layout types. So for example a ‘content’ page type with text titles at the top will have different inline CSS from a big marketing feature page with images in the header.</p>
+  <h3>Render blocking CSS</h3>
+  <p><strong>TL;DR Force the browser into prioritising CSS.</strong></p>
+  <p>CSS files are <a href="https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/">render-blocking</a>. They block anything else happening until they’ve been processed by the browser. Unlike javascript, CSS doesn’t have any handy attributes to get round this and allow the CSS to be loaded while other things are loading (eg “async”).</p>
+  <p>One fix to get round this is to “convince” the browser into thinking the css is for lowly print (browsers give print styles a very low priority). Then with a bit of javascript we tell it the truth, that this is actually web.</p>
+  <pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>print<span class="token punctuation">"</span></span> <span class="token attr-name">onload</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>this.media=<span class="token punctuation">'</span>all<span class="token punctuation">'</span><span class="token punctuation">"</span></span></span></code></pre>
+  <h3>CSS Caching</h3>
+  <p><strong>TL;DR Don’t get carried away with inline CSS or page-specific CSS.</strong></p>
+  <p>Then there’s the question of whether any of this really matters. We might optimize our CSS in some hugely complex way for each published page. We might split it into lots of separate files just for that page so that we use only exactly what’s needed, and nothing more. We have amazing reports from Google Lighthouse and we’ve shaved 50ms off the user experience delay. We can crack open the UX champagne and celebrate our cleverness. But we’ve forgotten a key component. Caching.</p>
+  <p>Say someone visits a page on our site, they load up lots of specific CSS tailored for a great experience on that page. Then they visit another page, and now their browser has to redownload everything.</p>
+  <p>Can we be certain this gives us a better performance than if they’d visited page #2 and their browser had instant access to the cached CSS? This is where things get really marginal, and complicated to measure.</p>
+  <p>As a rule of thumb, we always need to cater for the first-time-first-impressions-matter visitor. If the site as a whole tends to cater for these visitors more then we can prioritise leaner CSS over cached CSS.</p>
+  <p>We can also try to make sure that large amounts of CSS gets cached for heavily repeated areas of CSS. So for example all the most common components on a page could be lumped into one or more commonly-used files which are more likely to be used elsewhere in the user’s journey across your site.</p>
+  <p>There is no easy solution to this, and it does require a knowledge of business needs, user journeys, and the overall makeup of the components on your site.</p>
+  <h3>CSS Summary</h3>
+  <p><strong>TL;DR I said it was complicated…</strong></p>
+  <p>All things considered, my advice for CSS is to tread carefully, and perhaps not worry too much about ‘Reduce Unused CSS’. Sure, first impressions matter, so even with caching we don’t want massive CSS files with a load of redundant CSS. But equally we don’t want highly tailored CSS which is different on every page, and we end up never using caching to our advantage. We have to try to strike a balance, and this is incredibly difficult to optimise.</p>
+  <p>Our approach at Kent has been to load the bulk of key above-the-fold CSS inline. This means a lot of CSS isn’t cached, but it does mean that it’s loaded very fast on the first visit. We then load highly common CSS files, which tend to stay the same for the vast majority of key pages. This does get cached. After that we lazy load CSS for certain blocks on the page which are used fairly commonly, but generally only further down the page. These will get cached, but won’t affect the first-load because they’re loaded lazily.</p>
+  <h2>Javascript</h2>
+  <p><strong>TL;DR Most modern websites and web apps rely heavily on javascript. The javascript can become heavy, but there are plenty of techniques to help spread the load.</strong></p>
+  <p>Javascript in many ways has the same issues as CSS. However javascript isn’t (for the Kent website at least) quite as prevalent to the immediate user experience on most pages. Also there are far more tools available to load javascript in intelligent, lazy ways. <code>&lt;script&gt;</code> tags have attributes such as <code>defer</code> or <code>async</code>. We have webpack to allow us to split javascript up and load what’s needed dynamically, rather than load one huge file, most of which isn’t needed.</p>
+  <p>Javascript libraries continue to be fairly large, sometimes much bigger than is needed. For this reason we’ve chosen to use <a href="https://alpinejs.dev">alpine.js</a> for a lot of our frontend functionality. It is relatively lightweight, and has many of the advantages of Vuejs for building data-driven interfaces (for example searching across large amounts of json data) and many of the conveniences of jQuery for simple user interactions.</p>
+  <h3 class="heading2__Heading2-sc-1srdi6x-0 post__PostTitle-sc-dbb7o3-0 bvYuTp euYJTd blog-post-title">Dynamic imports and code splitting with Webpack</h3>
+  <p>At Kent we do a lot of javascript lazy loading. We know for a lot of the blocks on a page whether we need javascript for them, and we can load that dynamically with webpack:</p>
+  <pre>import(/* webpackChunkName: "myfile" */ './myfile.js').then(({ default: _ }) =&gt; {});</pre>
+  <div>We also use alpine.js as a handy way to load javascript lazily one a user scrolls past a certain point on the page. This way we can avoid some quite large javascript downloads for things like carousels on initial load.</div>
+
+  <h2>Summary</h2>
+  <p>Web performance is an ever-changing and complex aspect of the overall web user experience.</p>
+  <p>It involves consideration of how and when resources are downloaded from servers, how those resources are processed on different browsers, how to DOM and CSS get parsed, and a balance between user experience and the technical boundaries of the site you’re working with.</p>
+  <p>Large, federated, dynamic websites pose problems particularly for CSS efficiency, because of the sheer variety of possibilities in design and formatting. Physical design considerations can become an issue where design choices are made independent of efficiency and speed considerations.</p>
+

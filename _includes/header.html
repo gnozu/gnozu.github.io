@@ -9,7 +9,7 @@
 
     <nav class="site-nav" x-data="{open:false}">
 
-      <div x-show="window.innerWidth <= 768">
+      <template x-if="window.innerWidth <= 768">
         <button
           class="hamburger"
           aria-label="open menu"
@@ -74,15 +74,17 @@
 
 
 
-      </div>
+      </template>
 
-      <div id="menu" class="trigger" x-transition x-show="window.innerWidth > 768 ? true : false">
+      <template x-if="window.innerWidth > 768">
+      <div id="menu" class="trigger" x-transition>
         {% for page in site.pages %}
         {% if page.menu %}
         <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
         {% endif %}
         {% endfor %}
       </div>
+      </template>
 
     </nav>
 
