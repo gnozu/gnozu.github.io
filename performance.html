@@ -22,16 +22,16 @@ Improve PageSpeed Insights scores for key pages on the website.
 8. Overall PageSpeed scores improved significantly, particularly on mobile.
 
 <h2>Lessons learned</h2>
-This project ended up being quite a bit larger than originally intended. Analysis of the website performance led to a
-number of discoveries, many of which had complex solutions.
+<p>This project ended up being quite a bit larger than originally intended. Analysis of the website performance led to a
+number of discoveries, many of which had complex solutions.</p>
 
-One major problem was to get above the fold CSS to load early and quickly. The website had many thousands of pages,
+<p>One major problem was to get above the fold CSS to load early and quickly. The website had many thousands of pages,
 often with very different content and designs above the fold. I therefore had to carefully isolate the required CSS,
-often using different sets of CSS inline depending on page type.
+often using different sets of CSS inline depending on page type.</p>
 
-JavaScript performance was improved by loading much of it dynamically, as soon as the relevant component on the page
-approached scrolling into view. Core JavaScript file size was reduced dramatically.
+<p>JavaScript performance was improved by loading much of it dynamically, as soon as the relevant component on the page
+approached scrolling into view. Core JavaScript file size was reduced dramatically.</p>
 
-The biggest problem of all - and for which there was no ideal solution - was loading 3rd party marketing JavaScript. The
+<p>The biggest problem of all - and for which there was no ideal solution - was loading 3rd party marketing JavaScript. The
 impacted performance hugely. There was therefore a tension between user experience and page speed, and the needs of
-marketing to track users across the site and interact with them with chat widgets.
+marketing to track users across the site and interact with them with chat widgets.</p>
