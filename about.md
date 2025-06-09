@@ -5,9 +5,10 @@ permalink: /about/
 menu: true
 ---
 
-[http://gnozu.github.io/]() - this cv, and more!
+I'm an experienced web developer, specialising in PHP, Laravel, HTML, CSS, JavaScript, Figma and UX design. I never feel the work Full Stack does anyone any justice, but I certainly have a very broad experience of the full web journey from concept to finished product.
 
-[https://github.com/unikent]() - I have contributed heavily to a number of open and private github projects as `gnozu` and `mb324-unikent`. Particularly notable are [https://github.com/unikent/programmes-plant]() and [https://github.com/unikent/of-course]()
+Over the last 18 years I've built a range of large scale systems at the University of Kent, researching user and business needs, designing UI with Figma and Sketch, building in PHP, Laravel and JavaScript such as Vuejs and Alpinejs.
 
-I have helped set up a user-experience vision and technical website. This included instigating a work-in-progress pattern library for a new University of Kent web theme, which can be found at [https://github.com/unikent/user-experience](). This is a private repository, so contact me if you would like to know more details.
+I often work with marketing and development teams to build great user experiences that enhance an organisation's customer relations and marketability. 
 
+You won't find a mass of social media posts from me, as I try to steer clear of that particular minefield. I prefer to write blogs posts and focus on getting the job done. I have put some case studies on this site, of things I've worked on over the years which hopefully show the kinds of things I'm capable of.
