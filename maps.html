@@ -1,0 +1,79 @@
+---
+layout: page
+title: Maps
+permalink: /maps/
+---
+
+<h1>Maps UI redesign and redevelopment</h1>
+<p>
+The university online <a href="https://www.kent.ac.uk/maps"></a>maps system</a> had existed for many years, but wasn't on brand and was slow. It also lacked some useful integration with room availability data.
+</p>
+
+<h2>Objectives</h2>
+<ol>
+    <li>Get maps frontend on brand.</li>
+    <li>Speed up rendering and search.</li>
+    <li>Add new functionality to highlight different zones on the campus.</li>
+    <li>Add new functionality to label campus study spaces.</li>
+    <li>Add new functionality to show better room resources and equipment.</li>
+    <li>Add new functionality to show better room availability.</li>
+    <li>Add new functionality to show how many PCs were available to use in PC rooms.</li>
+</ol>
+
+<h2>Actions</h2>
+
+The first action was to draw up detailed Figma prototypes for how the new room data might be shown.
+
+<figure aria-describedby="caption-attachment-1">
+    <img alt="" src="/images/figma-maps1.webp" width="300" height="200">
+    <img alt="" src="/images/figma-maps2.webp" width="300" height="200">
+    <img alt="" src="/images/figma-maps3.webp" width="300" height="200">
+    <img alt="" src="/images/figma-maps4.webp" width="300" height="200">
+    <figcaption id="caption-attachment-1">Figma prototypes of the new maps frontend.</figcaption>
+</figure>
+
+<h3>Get maps frontend on brand.</h3>
+<p>
+There were a number of issues to sort out with colours, shapes, designs and fonts. These were relatively simple - but important - to sort out. In particular some thought was given to the navigation bar. In the end it was decided to keep the more familiar global nav bar.
+</p>
+
+<h3>Speed up rendering and search.</h3>
+<p>Existing javascript code wasn't efficient, particularly the way json data was accessed and processed. I rebuilt the underlying javascript from scratch in an Alpinejs micro-app.</p>
+
+
+<h3>Add new functionality to highlight different zones on the campus.</h3>
+
+<p>
+    A completely new feature for the university was to add coloured zones to the campus map, in line with other offline maps and guides.
+</p>
+<p>
+    I added provision for highlighting different areas of the map, as well as a small widget to view and choose the different zones.
+</p>
+<h3>Add new functionality to label campus study spaces.</h3>
+<p>
+    A request from the business owner was to add in markers and extra data for special study spaces on campus.
+</p>
+<p>
+    This was a multi-layered request, requiring adding new fields to the Laravel Nova backend, and a new system of showing and highlighting campus lounges and study spaces with new markers. It proved to be one of the more challenging areas in terms of both code and UX design, because I had to make the marker display and selection simple, subtle, and yet clear.
+</p>
+<h3>Add new functionality to show better room resources and equipment.</h3>
+<p>Rooms often have listings of resources, and study spaces and lounges have extra resources such printers, microwaves, fridges etc.</p>
+<p>Again, this meant adding new data fields in Laravel Nova, making those available in the API, and then the UX/UI task of making these fields clearly noticeable.</p>
+
+<h3>Add new functionality to show better room availability.</h3>
+<p>
+    The university has room availability data and an API, but this was never used by the maps system before.
+</p>
+<p>
+    A challenge here was to pull in availability data in a timely way, and display it clearly.
+</p>
+<h3>Add new functionality to show how many PCs were available to use in PC rooms.</h3>
+<p>
+    Another requirement to show existing PC availability data. The challenge here was that the data didn't map nicely to existing room codes in the maps system. So I had to add new mapping fields to the maps backend.
+</p>
+
+<h2>Lessons learned</h2>
+
+<p>There were many features to this project. As ever, some challenges that seem hard are easily overcome, and some which at first seem trivial can have much more complex solutions.</p>
+<p>Overall the project ran on time, and regular meetings with the product owner meant that we could often reach compromises or better solutions to save time and money.</p>
+<p>It was an extremely satisfying project, because it involved backend Laravel work, frontend javascript work, CSS, Figma prototyping, and UX.</p>
