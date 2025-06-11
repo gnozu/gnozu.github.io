@@ -355,6 +355,7 @@ a.site-title:visited {
 .post-content h5,
 .post-content h6 {
   margin: 40px 0 20px 0;
+  line-height: 1;
 }
 
 .post-content h1 + h2 {
@@ -372,7 +373,7 @@ a.site-title:visited {
 .post-content h1 {
   margin-top: 0;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 36px;
 }
 
 .post-content h2 {

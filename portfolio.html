@@ -1,0 +1,252 @@
+---
+layout: page
+title: Portfolio
+permalink: /portfolio/
+---
+<h1 style="font-size:48px;margin-bottom:32px;">Matthew Bull. Portfolio of UX and design projects</h1>
+
+<h1>Case study 1: Maps UI redesign and redevelopment</h1>
+<p>
+The university online <a href="https://www.kent.ac.uk/maps"></a>maps system</a> had existed for many years, but wasn't on brand and was slow. It also lacked some useful integration with room availability data.
+</p>
+
+<h2>Objectives</h2>
+<ol>
+    <li>Get maps frontend on brand.</li>
+    <li>Speed up rendering and search.</li>
+    <li>Add new functionality to highlight different zones on the campus.</li>
+    <li>Add new functionality to label campus study spaces.</li>
+    <li>Add new functionality to show better room resources and equipment.</li>
+    <li>Add new functionality to show better room availability.</li>
+    <li>Add new functionality to show how many PCs were available to use in PC rooms.</li>
+</ol>
+
+<h2>Actions</h2>
+
+The first action was to draw up detailed Figma prototypes for how the new room data might be shown.
+
+<figure aria-describedby="caption-attachment-1">
+    <img alt="" src="/images/figma-maps1.webp" width="300" height="200">
+    <img alt="" src="/images/figma-maps2.webp" width="300" height="200">
+    <img alt="" src="/images/figma-maps3.webp" width="300" height="200">
+    <img alt="" src="/images/figma-maps4.webp" width="300" height="200">
+    <figcaption id="caption-attachment-1">Figma prototypes of the new maps frontend.</figcaption>
+</figure>
+
+<h3>Get maps frontend on brand.</h3>
+<p>
+There were a number of issues to sort out with colours, shapes, designs and fonts. These were relatively simple - but important - to sort out. In particular some thought was given to the navigation bar. In the end it was decided to keep the more familiar global nav bar.
+</p>
+
+<h3>Speed up rendering and search.</h3>
+<p>Existing javascript code wasn't efficient, particularly the way json data was accessed and processed. I rebuilt the underlying javascript from scratch in an Alpinejs micro-app.</p>
+
+
+<h3>Add new functionality to highlight different zones on the campus.</h3>
+
+<p>
+    A completely new feature for the university was to add coloured zones to the campus map, in line with other offline maps and guides.
+</p>
+<p>
+    I added provision for highlighting different areas of the map, as well as a small widget to view and choose the different zones.
+</p>
+<h3>Add new functionality to label campus study spaces.</h3>
+<p>
+    A request from the business owner was to add in markers and extra data for special study spaces on campus.
+</p>
+<p>
+    This was a multi-layered request, requiring adding new fields to the Laravel Nova backend, and a new system of showing and highlighting campus lounges and study spaces with new markers. It proved to be one of the more challenging areas in terms of both code and UX design, because I had to make the marker display and selection simple, subtle, and yet clear.
+</p>
+<h3>Add new functionality to show better room resources and equipment.</h3>
+<p>Rooms often have listings of resources, and study spaces and lounges have extra resources such printers, microwaves, fridges etc.</p>
+<p>Again, this meant adding new data fields in Laravel Nova, making those available in the API, and then the UX/UI task of making these fields clearly noticeable.</p>
+
+<h3>Add new functionality to show better room availability.</h3>
+<p>
+    The university has room availability data and an API, but this was never used by the maps system before.
+</p>
+<p>
+    A challenge here was to pull in availability data in a timely way, and display it clearly.
+</p>
+<h3>Add new functionality to show how many PCs were available to use in PC rooms.</h3>
+<p>
+    Another requirement to show existing PC availability data. The challenge here was that the data didn't map nicely to existing room codes in the maps system. So I had to add new mapping fields to the maps backend.
+</p>
+
+<h2>Lessons learned</h2>
+
+<p>There were many features to this project. As ever, some challenges that seem hard are easily overcome, and some which at first seem trivial can have much more complex solutions.</p>
+<p>Overall the project ran on time, and regular meetings with the product owner meant that we could often reach compromises or better solutions to save time and money.</p>
+<p>It was an extremely satisfying project, because it involved backend Laravel work, frontend javascript work, CSS, Figma prototyping, and UX.</p>
+
+<h1 style="page-break-before: always">Case study 2: Accessibility revamp of website</h1>
+<p>
+    I improved the user experience of the University of Kent website by getting full W3C AA compliance on the university
+    website. It was the first university
+    website to achieve ASPIRE Education Gold 100% compliance. The university also won the 2022 UCISA Transformation
+    Award
+    for the provision of accessible content across University digital platforms, of which the website was a key part.
+</p>
+
+<h2>Objectives</h2>
+<ol>
+    <li>Get key parts of the university website fully AA compliant.</li>
+    <li>Try to understand the actual needs of users better. Very often accessibility compliance can focus on ticking
+        boxes
+        rather than looking at how people interact with the website.</li>
+    </p>
+
+    <h2>Actions</h2>
+
+    <h3>Get key parts of the university website fully AA compliant.</h3>
+
+    This was no small task because the website had over 100 different contributors. While we could control many parts of
+    the templates, we could not control every aspect.
+    I ran a series of audits across the key parts of the website, to get the main issues which could be fixed through
+    relatively simple HTML or CSS changes.
+    A lot of these issues could be fixed with things liks `aria-label` or using appropriate tags for modals.
+    I was also able to work with people from student services teams to help audit content from across the university
+    website.
+
+    <h3>Try to understand the actual needs of users better. Very often accessibility compliance can focus on ticking
+        boxes
+        rather than looking at how people interact with the website.</h3>
+
+    A lot of AA compliance can be treated as a box-ticking exercise. But I wanted to understand what makes aspects of a
+    website more accessible, and why.
+    Using tools such as JAWS, NVDA and VoiceOver first-hand gives a greater understanding how people use websites.
+    There's quite a learning curve, and it can be quite surprising at first.
+
+    I was also able to access interviews with a handful of users with vision impairment. This was hugely useful, to gain
+    a real understanding of the often surprising ways people navigate and use websites.
+
+    <h3>Summary of actions</h3>
+    <ol>
+        <li>Gain a deeper understanding of accessibility compliance and measuring tools.</li>
+        <li>Gain a better understanding of tools such as JAWS, NVDA and VoiceOver.</li>
+        <li>Interview several people with vision impairment.</li>
+        <li>Work with people from student services teams to help audit content from across the university website, gain
+            better insight into users’ needs.</li>
+        <li>Make fixes to HTML, restyle elements to make them bigger, easier to press or read, easier to tab through,
+            etc.</li>
+    </ol>
+
+    <h2>Lessons learned</h2>
+
+    <p>Gaining complete AA compliance on a large website is hard. It’s possible to make structural changes to make sure
+        coloured contrast, buttons, accordions, modals and other components meet the requirements. However much
+        accessibility
+        relies on content.</p>
+    <p>The university had well over one hundred content creators. Part of accessibility is therefore
+        educating content creators about the use of alt text for images, using simple language etc.</p>
+
+
+
+
+<h1 style="page-break-before: always">Case study 3: Performance analysis and revamp of css/js lazy loading</h1>
+
+<h2>Objectives</h2>
+Improve PageSpeed Insights scores for key pages on the website.
+
+<h2>Actions</h2>
+<ol>
+    <il>Analysis using PageSpeed Insights and Lighthouse. Core Web Vitals.</li>
+        <il>Pinpointing main bottlenecks and issues.</li>
+            <il>Loading CSS as needed, rather than in one large file.</li>
+                <il>Loading above the fold CSS inline.</li>
+                    <il>Optimisation of font loading.</li>
+                        <il>Loading JavaScript assets dynamically as needed rather than in one large file.</li>
+                            <il>Lazy loading images. Using webp images.</li>
+                                <il>Overall PageSpeed scores improved significantly, particularly on mobile.
+</ol>
+
+<h2>Lessons learned</h2>
+<p>This project ended up being quite a bit larger than originally intended. Analysis of the website performance led to a
+    number of discoveries, many of which had complex solutions.</p>
+
+<p>One major problem was to get above the fold CSS to load early and quickly. The website had many thousands of pages,
+    often with very different content and designs above the fold. I therefore had to carefully isolate the required CSS,
+    often using different sets of CSS inline depending on page type.</p>
+
+<p>JavaScript performance was improved by loading much of it dynamically, as soon as the relevant component on the page
+    approached scrolling into view. Core JavaScript file size was reduced dramatically.</p>
+
+<p>The biggest problem of all - and for which there was no ideal solution - was loading 3rd party marketing JavaScript.
+    The
+    impacted performance hugely. There was therefore a tension between user experience and page speed, and the needs of
+    marketing to track users across the site and interact with them with chat widgets.</p>
+
+
+
+
+
+<h1 style="page-break-before: always">Case study 4: University website rebrand</h1>
+
+<h2>Objectives</h2>
+<p>
+    The university adopted a new brand in 2022. The needed to be applied to all of the public website and internal web
+    systems. The timeline for adopting the new brand was tight. The new brand was finalised in August 2022 and needed to
+    be
+    implemented on the website by the end of September 2022 ready for the new academic year. The core of the design was
+    a
+    new homepage, but many other key pages had to be completely redesigned. Thousands of other pages on the website
+    would
+    still need to work and be on brand.
+</p>
+
+<h2>Actions</h2>
+<ol>
+    <li>Work in detail on a new homepage design. I received Adobe InDesign prototypes from the brand agency which had to
+        be
+        reinterpreted to work as a responsive website using our existing in-house content management system and code.
+    </li>
+    <li>Identify and build key layout components which could be reused on other key pages on the marketing website.</li>
+    <li>Identify quick wins for most of the website, such as adopting new fonts and colours. Work out how these could be
+        incorporated into existing page designs with minimal coding changes, in a way that could be applied quickly to
+        large
+        parts of the website.</li>
+</ol>
+
+<h2>Lessons learned</h2>
+
+<p>
+    I was able to rework much of the website brand with relatively simple code changes to switch existing colours to new
+    colours, and switch the font. I was able to keep some of the design shapes because they resembled the new brand.
+</p>
+<p>
+    Building new components for key pages such as the homepage took much longer, and far more effort was directed at
+    this.
+    Many components were only inspired by the agency designs, requiring redesign in Figma, then rebuilding in HTML, CSS
+    and
+    JavaScript.
+</p>
+
+
+
+
+<h1 style="page-break-before: always">Case study 5: Website analysis and redesign project</h1>
+
+<h2>Objectives</h2>
+<p>Reduce the size and scope of the university website, which had become a massive and disjointed collection of webpages
+    with confused scope.</p>
+
+<h2>Actions</h2>
+<ol>
+    <li>Carried out a series of business needs analysis, user needs analysis.</li>
+    <li>Scope of the university website. Data analysis looking at pageviews, user journeys.</li>
+    <li>Interviews with internal stakeholders: executive group, marketing, comms, academic schools, students,
+        prospective
+        students.</li>
+    <li>Need to group student-focused content in a single hub rather than spread across many different areas of the
+        university website.</li>
+    <li>Need to reduce the size and scope of academic school websites.</li>
+    <li>Need to move internal student-focussed content to Moodle.</li>
+    <li>Need to simplify global navigation.</li>
+</ol>
+
+<h2>Lessons learned</h2>
+<p>A large project with scope to radically change the university’s website. Resulted in the Guide - a hub with all help
+    pages in one area, rather than spread across many sites.</p>
+<p>Data analysis pointed to how little much academic school content was viewed. Too much importance placed on
+    non-recruitment.</p>
+<p>Resulted in new designs for the website, with much simpler navigation, smaller sites, more focused on marketing.</p>
