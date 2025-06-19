@@ -1,0 +1,90 @@
+---
+layout: page
+title: System status panels
+permalink: /status/
+---
+
+<h1>System status panels UI redesign and redevelopment</h1>
+<p>
+The university online <a href="https://status.kent.ac.uk/"></a>system status panels</a> were out of brand, and needed updating. A project was started to look at refreshing the designs, and shifting focus more onto how students might use the service, rather than as a dry list. In particular the old system only highlighted key systems, and other important systems were relegated to text lists
+which were often missed.
+</p>
+<p>
+    The project product owner also wanted to emphasise the page as a whole as a way of communicating more positive messages with students.
+</p>
+
+<h2>Objectives</h2>
+<ol>
+    <li>Get status panels frontend on brand.</li>
+    <li>Add new functionality to highlight the status levels of many different systems.</li>
+    <li>Redesign the backend to allow for events to be linked to services.</li>
+    <li>Allow for panels displaying images, graphics, and positive messages directed at students.</li>
+    <li>Allow for a separate, searchable full service catalog listing.</li>
+</ol>
+
+<h2>Actions</h2>
+
+<h3>Get status panels frontend on brand.</h3>
+<p>
+One of the key aims of this project was simply to get the status.kent page on brand. This mainly involved reworking the frontend styles to use the same fonts and classes as the rest of the website. As such, this work came later in the project with redeveloping the frontend code.
+</p>
+
+<h3>Add new functionality to highlight the status levels of many different systems.</h3>
+<p>
+    The new system needed to show far more detail about each system, while keeping things focused and simple.
+</p>
+<p>
+The first design action was to draw up detailed Figma prototypes for how the new page might look given the various project criteria.
+We iterated through serveral versions and options before arriving at a good enough prototype to start developing. Almost always designs have to change from the prototype because of unforeseen issues that we come across in the develop stage.
+</p>
+
+<figure aria-describedby="caption-attachment-1">
+    <img alt="" src="/images/status1.webp" width="300" height="200">
+    <img alt="" src="/images/status2.webp" width="300" height="200">
+    <img alt="" src="/images/status3.webp" width="300" height="200">
+    <figcaption id="caption-attachment-1">Figma prototypes of the status.kent frontend.</figcaption>
+</figure>
+
+
+<h3>Redesign the backend to allow for events to be linked to services.</h3>
+<p>
+    Part of the project was to be able to separate key services from general ones, and also to be able to better represent different events for each service, such as maintenance or downtime. Previously, the system just had a list of notices. They did not relate to predefined services in any way, and the list could be confusing.
+</p>
+<p>
+    This meant a total redesign of the backend of the system - using Laravel Nova - along with a new API.
+</p>
+
+<h3>Allow for panels displaying images, graphics, and positive messages directed at students.</h3>
+<p>
+    This requirement meant we needed to build the page in our existing content management system, so we'd be able to leverage that system's ability to insert visual blocks on the page, and have the page served up on the website.
+</p>
+<p>
+    That meant the frotend had to use javascript to access the new API, and serve up the content dynamically - reloading every minute or so - while the main page remained cached.
+</p>
+<p>
+    I used Alpinejs for a simple one-page micro app. This kept things extremely lightweight and simple.
+</p>
+
+<h3>Allow for a separate, searchable full service catalog listing.</h3>
+
+<p>The project needed to have a full, sortable, searchable listing as a separate block. This could be used on the same page, or a completely different page.</p>
+<p>
+    Again, I built a small, simple micro app with Alpinejs to show data from the API as a sortable and searchable list.
+</p>
+
+<h2>Lessons learned</h2>
+
+<p>
+    This project encompassed:
+    <ul>
+        <li>needs analysis</li>
+        <li>discussions with the project owners</li>
+        <li>wireframing and Figma designs</li>
+        <li>Laravel development</li>
+        <li>API development</li>
+        <li>frontend development using Alpinejs</li>
+    </ul>
+</p>
+<p>
+    The project worked really well, and delivered exactly what the owners neede, on time. It was great to work through the whole lifecycle, from design to final build.
+</p>
